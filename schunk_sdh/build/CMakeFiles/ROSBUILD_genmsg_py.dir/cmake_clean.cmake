@@ -1,0 +1,14 @@
+FILE(REMOVE_RECURSE
+  "../msg_gen"
+  "../src/schunk_sdh/msg"
+  "../msg_gen"
+  "CMakeFiles/ROSBUILD_genmsg_py"
+  "../src/schunk_sdh/msg/__init__.py"
+  "../src/schunk_sdh/msg/_TactileMatrix.py"
+  "../src/schunk_sdh/msg/_TactileSensor.py"
+)
+
+# Per-language clean rules from dependency scanning.
+FOREACH(lang)
+  INCLUDE(CMakeFiles/ROSBUILD_genmsg_py.dir/cmake_clean_${lang}.cmake OPTIONAL)
+ENDFOREACH(lang)
