@@ -72,7 +72,7 @@
 #include <std_msgs/Float32MultiArray.h>
 #include <trajectory_msgs/JointTrajectory.h>
 #include <sensor_msgs/JointState.h>
-//#include <pr2_controllers_msgs/JointTrajectoryAction.h>
+//#include <pr2_controllers_msgs/JointTrajectoryAction.h>robot_state_publisher
 #include <control_msgs/FollowJointTrajectoryAction.h>
 #include <pr2_controllers_msgs/JointTrajectoryControllerState.h>
 #include <schunk_sdh/TactileSensor.h>
@@ -458,6 +458,7 @@ class SdhNode
 						ROS_INFO("Starting initializing TCP");
 						sdh_->OpenTCP(tcp_adr_.c_str(), tcp_port_, timeout_);
 						ROS_INFO("Initialized TCP for SDH");
+						isInitialized_ = true;
 		
 					}
 					if(sdhdevicetype_.compare("ESD")==0)
@@ -483,6 +484,7 @@ class SdhNode
 						ROS_INFO("Initialized ESDCAN for SDH");	
 						isInitialized_ = true;
 					}
+
 				}
 				catch (SDH::cSDHLibraryException* e)
 				{
@@ -494,10 +496,12 @@ class SdhNode
 				}
 				
 				//Init tactile data
-				if(!dsadevicestring_.empty() || dsa_tcp_.compare("yes")==0 )  {
+				if(!dsadevicestring_.empty() || dsa_tcp_.compare("yup")==0 )  {
+					ROS_INFO(dsa_tcp_.c_str());
 					try
 					{
-						if(dsa_tcp_.compare("yes")==0)
+						
+						if(dsa_tcp_.compare("yup")==0)
 						{
 //						dsa_ = new cDSA(0,tcp_adr_.c_str()); 
 						
@@ -752,8 +756,10 @@ class SdhNode
 			mimicjointmsg.position.resize(1);
 			mimicjointmsg.velocity.resize(1);
 			mimicjointmsg.name[0] = "sdh_finger_21_joint";
-			mimicjointmsg.position[0] = msg.position[0]; // sdh_knuckle_joint = sdh_finger_21_joint
-			mimicjointmsg.velocity[0] = msg.velocity[0]; // sdh_knuckle_joint = sdh_finger_21_joint
+			//mimicjointmsg.position[0] = msg.position[0]; // sdh_knuckle_joint = sdh_finger_21_joint
+			//mimicjointmsg.velocity[0] = msg.velocity[0]; // sdh_knuckle_joint = sdh_finger_21_joint
+			mimicjointmsg.position[0]=actualAngles[0]*pi_/180.0;
+			mimicjointmsg.velocity[0]=actualVelocities[0]*pi_/180.0;
 			topicPub_JointState_.publish(mimicjointmsg);
 			
 			
