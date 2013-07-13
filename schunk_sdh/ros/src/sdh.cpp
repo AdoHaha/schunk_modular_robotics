@@ -651,7 +651,7 @@ class SdhNode
 				}
 		
 				if (operationMode_ == "position")
-				{
+				{//joint_names_.resize(DOF_)
 					ROS_DEBUG("moving sdh in position mode");
 
 					try
@@ -722,13 +722,21 @@ class SdhNode
 			// create joint_state message
 			sensor_msgs::JointState msg;
 			msg.header.stamp = time;
-			msg.name.resize(DOF_);
-			msg.position.resize(DOF_);
-			msg.velocity.resize(DOF_);
-			msg.effort.resize(DOF_);
+			msg.name.resize(DOF_); //added this mimicked joint
+			msg.position.resize(DOF_+1);
+			msg.velocity.resize(DOF_+1);
+			msg.effort.resize(DOF_+1);
 			// set joint names and map them to angles
+			//std::vector<std::string> joint_names_2;
+			//joint_names_2=joint_names_;
+			//joint_names_2.resize(DOF_+1);
+			//joint_names_2[7]=(std::string)"sdh_finger_21_joint";
 			msg.name = joint_names_;
-			//['sdh_knuckle_joint', 'sdh_thumb_2_joint', 'sdh_thumb_3_joint', 'sdh_finger_12_joint', 'sdh_finger_13_joint', 'sdh_finger_22_joint', 'sdh_finger_23_joint']
+			msg.name.resize(8);
+			msg.name[7]="sdh_finger_21_joint";
+		/*	std::string names[7]={'sdh_knuckle_joint', 'sdh_thumb_2_joint', 'sdh_thumb_3_joint', 'sdh_finger_12_joint', 'sdh_finger_13_joint', 'sdh_finger_22_joint', 'sdh_finger_23_joint','sdh_finger_21_joint'};*/
+			//std::copy(names, names + 7, msg.name);
+			/*msg.name={'sdh_knuckle_joint', 'sdh_thumb_2_joint', 'sdh_thumb_3_joint', 'sdh_finger_12_joint', 'sdh_finger_13_joint', 'sdh_finger_22_joint', 'sdh_finger_23_joint','sdh_finger_21_joint'};*/
 			// pos
 			msg.position[0] = actualAngles[0]*pi_/180.0; // sdh_knuckle_joint
 			msg.position[1] = actualAngles[3]*pi_/180.0; // sdh_thumb_2_joint
@@ -737,6 +745,7 @@ class SdhNode
 			msg.position[4] = actualAngles[6]*pi_/180.0; // sdh_finger_13_joint
 			msg.position[5] = actualAngles[1]*pi_/180.0; // sdh_finger_22_joint
 			msg.position[6] = actualAngles[2]*pi_/180.0; // sdh_finger_23_joint
+			msg.position[7] = actualAngles[0]*pi_/180.0;
 			// vel			
 			msg.velocity[0] = actualVelocities[0]*pi_/180.0; // sdh_knuckle_joint
 			msg.velocity[1] = actualVelocities[3]*pi_/180.0; // sdh_thumb_2_joint
@@ -745,12 +754,14 @@ class SdhNode
 			msg.velocity[4] = actualVelocities[6]*pi_/180.0; // sdh_finger_13_joint
 			msg.velocity[5] = actualVelocities[1]*pi_/180.0; // sdh_finger_22_joint
 			msg.velocity[6] = actualVelocities[2]*pi_/180.0; // sdh_finger_23_joint
-			// publish message
+			msg.velocity[7] = actualVelocities[0]*pi_/180.0;			
+
+// publish message
 			topicPub_JointState_.publish(msg);
-			
+			ROS_DEBUG("sdh not initialized");
 			
 			// because the robot_state_publisher doen't know about the mimic joint, we have to publish the coupled joint separately
-			sensor_msgs::JointState  mimicjointmsg;
+	/*		sensor_msgs::JointState  mimicjointmsg;
 			mimicjointmsg.header.stamp = time;
 			mimicjointmsg.name.resize(1);
 			mimicjointmsg.position.resize(1);
@@ -761,7 +772,7 @@ class SdhNode
 			mimicjointmsg.position[0]=actualAngles[0]*pi_/180.0;
 			mimicjointmsg.velocity[0]=actualVelocities[0]*pi_/180.0;
 			topicPub_JointState_.publish(mimicjointmsg);
-			
+	*/		
 			
 			// publish controller state message
 			pr2_controllers_msgs::JointTrajectoryControllerState controllermsg;
