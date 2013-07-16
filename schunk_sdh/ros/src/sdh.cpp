@@ -125,7 +125,7 @@ class SdhNode
 
 		// service clients
 		//--
-
+//print fyufy
 		// other variables
 		SDH::cSDH *sdh_;
 		SDH::cDSA *dsa_;
@@ -505,7 +505,7 @@ class SdhNode
 						{
 //						dsa_ = new cDSA(0,tcp_adr_.c_str()); 
 						
-
+// fufu
 //dsa_ = new SDH::cDSA(0, dsadevicenum_, dsadevicestring_.c_str());
 						
 // tcp_adr_.c_str(),dsa_tcp_port_);
@@ -514,15 +514,19 @@ class SdhNode
 						dsa_= new SDH::cDSA(0,tcp_adr_.c_str(),dsa_tcp_port_,timeout_);
 						
 						//dsa_ = new SDH::cDSA(0, dsadevicenum_, dsadevicestring_.c_str());
+
+						ROS_INFO("Initialized TCP for DSA Tactile Sensors on device  ip address: %s",tcp_adr_.c_str());
+						
 						}
 						else
 						{
 						dsa_ = new SDH::cDSA(0, dsadevicenum_, dsadevicestring_.c_str());
 				//		ts = new cDSA( options.debug_level, options.tcp_adr.c_str(), options.dsa_tcp_port, options.timeout );
+						ROS_INFO("Initialized RS232 for DSA Tactile Sensors on device %s",dsadevicestring_.c_str());
+						
 						}
 						//dsa_->SetFramerate( 0, true, false );
 						dsa_->SetFramerate( 1, true );
-						ROS_INFO("Initialized RS232 for DSA Tactile Sensors on device %s",dsadevicestring_.c_str());
 						// ROS_INFO("Set sensitivity to 1.0");
 						// for(int i=0; i<6; i++)
 						// 	dsa_->SetMatrixSensitivity(i, 1.0);
@@ -880,6 +884,7 @@ class SdhNode
 				}
 			}
 
+
 			schunk_sdh::TactileSensor msg;
 			msg.header.stamp = ros::Time::now();
 			int m, x, y;
@@ -911,7 +916,7 @@ class SdhNode
 */
 int main(int argc, char** argv)
 {
-	// initialize ROS, spezify name of node
+	// initialize ROS, specify name of node
 	ros::init(argc, argv, "schunk_sdh");
 
 	//SdhNode sdh_node(ros::this_node::getName() + "/joint_trajectory_action");
@@ -927,7 +932,7 @@ int main(int argc, char** argv)
 	}
 	else
 	{
-		frequency = 5; //Hz
+		frequency = 50; //Hz
 		ROS_WARN("Parameter frequency not available, setting to default value: %f Hz", frequency);
 	}
 

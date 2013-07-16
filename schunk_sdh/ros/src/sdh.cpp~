@@ -173,7 +173,7 @@ class SdhNode
 			nh_ = ros::NodeHandle ("~");
 			isError_ = false;
 			// diagnostics
-			topicPub_Diagnostics_ = nh_.advertise<diagnostic_msgs::DiagnosticArray::vector<std::string> joint_names_;cArray>("/diagnostics", 1);
+			topicPub_Diagnostics_ = nh_.advertise<diagnostic_msgs::DiagnosticArray>("/diagnostics", 1);
 
 		}
 
@@ -911,7 +911,7 @@ class SdhNode
 */
 int main(int argc, char** argv)
 {
-	// initialize ROS, spezify name of node
+	// initialize ROS, specify name of node
 	ros::init(argc, argv, "schunk_sdh");
 
 	//SdhNode sdh_node(ros::this_node::getName() + "/joint_trajectory_action");
@@ -927,7 +927,7 @@ int main(int argc, char** argv)
 	}
 	else
 	{
-		frequency = 5; //Hz
+		frequency = 50; //Hz
 		ROS_WARN("Parameter frequency not available, setting to default value: %f Hz", frequency);
 	}
 

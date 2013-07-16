@@ -22,5 +22,6 @@
   <depend package="diagnostic_msgs"/>
   <depend package="rostest"/>
   <depend package="brics_actuator"/>
+    <depend package="dlonurdf"/>
 
 </package>
