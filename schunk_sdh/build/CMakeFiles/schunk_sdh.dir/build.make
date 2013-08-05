@@ -75,22 +75,60 @@ CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /home/ros/fuerte_workspace/sandbox/cob_
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/share/diagnostic_msgs/manifest.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/share/roslib/manifest.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /home/ros/fuerte_workspace/sandbox/cob_common/brics_actuator/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/common_rosdeps/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/visualization_common/ogre/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/simulator_gazebo/gazebo_msgs/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/bullet/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/share/std_srvs/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/share/rosconsole/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/geometry/angles/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/share/roswtf/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/share/message_filters/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/geometry/tf/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/share/rosgraph_msgs/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/share/rosservice/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/share/ros/core/rosbuild/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/protobuf/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/simulator_gazebo/gazebo/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/pr2_mechanism/pr2_hardware_interface/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/orocos_kinematics_dynamics/orocos_kdl/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/orocos_kinematics_dynamics/python_orocos_kdl/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/orocos_kinematics_dynamics/kdl/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/robot_model/kdl_parser/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/pluginlib/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/ros_control/hardware_interface/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/pr2_mechanism/pr2_mechanism_model/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/ros_control/controller_interface/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/pr2_mechanism/pr2_controller_interface/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/ros_control/control_toolbox/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /home/ros/fuerte_workspace/sandbox/dlonurdf/manifest.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /home/ros/fuerte_workspace/sandbox/cob_common/cob_srvs/srv_gen/generated
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/pr2_controllers/pr2_controllers_msgs/msg_gen/generated
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/pr2_controllers/pr2_controllers_msgs/srv_gen/generated
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/control/control_msgs/msg_gen/generated
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /home/ros/fuerte_workspace/sandbox/cob_common/brics_actuator/msg_gen/generated
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/simulator_gazebo/gazebo_msgs/msg_gen/generated
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/simulator_gazebo/gazebo_msgs/srv_gen/generated
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/geometry/tf/msg_gen/generated
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/geometry/tf/srv_gen/generated
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/msg_gen/generated
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/dynamic_reconfigure/srv_gen/generated
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/simulator_gazebo/gazebo/msg_gen/generated
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/simulator_gazebo/gazebo/srv_gen/generated
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/ros_control/control_toolbox/srv_gen/generated
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /home/ros/fuerte_workspace/sandbox/dlonurdf/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/schunk_sdh.dir/ros/src/sdh.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN -o CMakeFiles/schunk_sdh.dir/ros/src/sdh.o -c /home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdh.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -pthread -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN -o CMakeFiles/schunk_sdh.dir/ros/src/sdh.o -c /home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdh.cpp
 
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/schunk_sdh.dir/ros/src/sdh.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN -E /home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdh.cpp > CMakeFiles/schunk_sdh.dir/ros/src/sdh.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -pthread -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN -E /home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdh.cpp > CMakeFiles/schunk_sdh.dir/ros/src/sdh.i
 
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/schunk_sdh.dir/ros/src/sdh.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN -S /home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdh.cpp -o CMakeFiles/schunk_sdh.dir/ros/src/sdh.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -pthread -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN -S /home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdh.cpp -o CMakeFiles/schunk_sdh.dir/ros/src/sdh.s
 
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.o.requires:
 .PHONY : CMakeFiles/schunk_sdh.dir/ros/src/sdh.o.requires

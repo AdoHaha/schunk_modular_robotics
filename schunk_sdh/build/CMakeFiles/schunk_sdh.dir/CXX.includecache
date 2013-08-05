@@ -393,6 +393,10 @@ std_msgs/String.h
 /home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdh.cpp
 unistd.h
 -
+boost/thread.hpp
+-
+boost/bind.hpp
+-
 ros/ros.h
 -
 urdf/model.h

@@ -63,6 +63,8 @@
 // standard includes
 #include <unistd.h>
 
+#include <boost/thread.hpp>
+#include <boost/bind.hpp>
 // ROS includes
 #include <ros/ros.h>
 #include <urdf/model.h>
@@ -125,7 +127,7 @@ class SdhNode
 
 		// service clients
 		//--
-
+//print fyufy
 		// other variables
 		SDH::cSDH *sdh_;
 		SDH::cDSA *dsa_;
@@ -157,7 +159,7 @@ class SdhNode
 		std::vector<double> velocities_; // in rad/s
 		bool hasNewGoal_;
 		std::string operationMode_; 
-		
+		boost::thread softcontroller;
 	public:
 		/*!
 		* \brief Constructor for SdhNode class
@@ -195,6 +197,9 @@ class SdhNode
 		*/
 		bool init()
 		{
+			//int i=1;
+			// boost:thread softcontroller(boost::bind( &SdhNode::softspeedcontroller, this ));
+			softcontroller = boost::thread(&SdhNode::softSpeedController, this,1);  
 			// initialize member variables
 			isInitialized_ = false;
 			isDSAInitialized_ = false;
@@ -267,6 +272,7 @@ class SdhNode
 			state_.resize(axes_.size());
 
 			nh_.param("OperationMode", operationMode_, std::string("position"));
+			softcontroller.interrupt();
 			return true;
 		}
 
@@ -277,6 +283,20 @@ class SdhNode
 		* \param goal JointTrajectoryGoal
 		*/
 		//void executeCB(const pr2_controllers_msgs::JointTrajectoryGoalConstPtr &goal)
+		
+		void softSpeedController(int nr)
+		{
+			try
+			{
+			
+			ros::spin();
+			}
+			  catch (boost::thread_interrupted&) 
+ 			 { 
+			ROS_INFO("Interrupting softSpeedController");
+ 			 }
+			//pthread_exit(NULL);
+		}
 		void executeCB(const control_msgs::FollowJointTrajectoryGoalConstPtr &goal)
 		{			
 			ROS_INFO("sdh: executeCB");
@@ -505,7 +525,7 @@ class SdhNode
 						{
 //						dsa_ = new cDSA(0,tcp_adr_.c_str()); 
 						
-
+// fufu
 //dsa_ = new SDH::cDSA(0, dsadevicenum_, dsadevicestring_.c_str());
 						
 // tcp_adr_.c_str(),dsa_tcp_port_);
@@ -514,15 +534,19 @@ class SdhNode
 						dsa_= new SDH::cDSA(0,tcp_adr_.c_str(),dsa_tcp_port_,timeout_);
 						
 						//dsa_ = new SDH::cDSA(0, dsadevicenum_, dsadevicestring_.c_str());
+
+						ROS_INFO("Initialized TCP for DSA Tactile Sensors on device  ip address: %s",tcp_adr_.c_str());
+						
 						}
 						else
 						{
 						dsa_ = new SDH::cDSA(0, dsadevicenum_, dsadevicestring_.c_str());
 				//		ts = new cDSA( options.debug_level, options.tcp_adr.c_str(), options.dsa_tcp_port, options.timeout );
+						ROS_INFO("Initialized RS232 for DSA Tactile Sensors on device %s",dsadevicestring_.c_str());
+						
 						}
 						//dsa_->SetFramerate( 0, true, false );
 						dsa_->SetFramerate( 1, true );
-						ROS_INFO("Initialized RS232 for DSA Tactile Sensors on device %s",dsadevicestring_.c_str());
 						// ROS_INFO("Set sensitivity to 1.0");
 						// for(int i=0; i<6; i++)
 						// 	dsa_->SetMatrixSensitivity(i, 1.0);
@@ -610,8 +634,10 @@ class SdhNode
 		operationMode_ = req.operation_mode.data;
 		res.success.data = true;
 		if( operationMode_ == "position"){
+			softcontroller.interrupt();
 			sdh_->SetController(SDH::cSDH::eCT_POSE);
 		}else if( operationMode_ == "velocity"){
+			softcontroller.interrupt();
 			try{
 				sdh_->SetController(SDH::cSDH::eCT_VELOCITY);
 				sdh_->SetAxisEnable(sdh_->All, 1.0);
@@ -621,7 +647,22 @@ class SdhNode
 				ROS_ERROR("An exception was caught: %s", e->what());
 				delete e;
 			}
-		}else{
+		}
+		else if (operationMode_ == "softposition")
+		{
+			softcontroller.interrupt();
+			softcontroller = boost::thread(&SdhNode::softSpeedController, this,1);  	
+		     try{
+		            sdh_->SetController(SDH::cSDH::eCT_VELOCITY);
+		            sdh_->SetAxisEnable(sdh_->All, 1.0);
+			}
+		    catch (SDH::cSDHLibraryException* e)
+			{
+				ROS_ERROR("An exception was caught: %s", e->what());
+				delete e;
+			}
+		}
+		else{
 			ROS_ERROR_STREAM("Operation mode '" << req.operation_mode.data << "'  not supported");
 		}
 		return true;
@@ -879,6 +920,7 @@ class SdhNode
 					delete e;
 				}
 			}
+
 
 			schunk_sdh::TactileSensor msg;
 			msg.header.stamp = ros::Time::now();

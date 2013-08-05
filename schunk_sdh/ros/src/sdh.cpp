@@ -63,6 +63,8 @@
 // standard includes
 #include <unistd.h>
 
+#include <boost/thread.hpp>
+#include <boost/bind.hpp>
 // ROS includes
 #include <ros/ros.h>
 #include <urdf/model.h>
@@ -157,7 +159,7 @@ class SdhNode
 		std::vector<double> velocities_; // in rad/s
 		bool hasNewGoal_;
 		std::string operationMode_; 
-		
+		boost::thread softcontroller;
 	public:
 		/*!
 		* \brief Constructor for SdhNode class
@@ -195,6 +197,9 @@ class SdhNode
 		*/
 		bool init()
 		{
+			//int i=1;
+			// boost:thread softcontroller(boost::bind( &SdhNode::softspeedcontroller, this ));
+			softcontroller = boost::thread(&SdhNode::softSpeedController, this,1);  
 			// initialize member variables
 			isInitialized_ = false;
 			isDSAInitialized_ = false;
@@ -267,6 +272,7 @@ class SdhNode
 			state_.resize(axes_.size());
 
 			nh_.param("OperationMode", operationMode_, std::string("position"));
+			softcontroller.interrupt();
 			return true;
 		}
 
@@ -277,6 +283,20 @@ class SdhNode
 		* \param goal JointTrajectoryGoal
 		*/
 		//void executeCB(const pr2_controllers_msgs::JointTrajectoryGoalConstPtr &goal)
+		
+		void softSpeedController(int nr)
+		{
+			try
+			{
+			
+			ros::spin();
+			}
+			  catch (boost::thread_interrupted&) 
+ 			 { 
+			ROS_INFO("Interrupting softSpeedController");
+ 			 }
+			//pthread_exit(NULL);
+		}
 		void executeCB(const control_msgs::FollowJointTrajectoryGoalConstPtr &goal)
 		{			
 			ROS_INFO("sdh: executeCB");
@@ -614,8 +634,10 @@ class SdhNode
 		operationMode_ = req.operation_mode.data;
 		res.success.data = true;
 		if( operationMode_ == "position"){
+			softcontroller.interrupt();
 			sdh_->SetController(SDH::cSDH::eCT_POSE);
 		}else if( operationMode_ == "velocity"){
+			softcontroller.interrupt();
 			try{
 				sdh_->SetController(SDH::cSDH::eCT_VELOCITY);
 				sdh_->SetAxisEnable(sdh_->All, 1.0);
@@ -625,7 +647,22 @@ class SdhNode
 				ROS_ERROR("An exception was caught: %s", e->what());
 				delete e;
 			}
-		}else{
+		}
+		else if (operationMode_ == "softposition")
+		{	
+			softcontroller.interrupt();
+			softcontroller = boost::thread(&SdhNode::softSpeedController, this,1);  	
+		     try{
+		            sdh_->SetController(SDH::cSDH::eCT_VELOCITY);
+		            sdh_->SetAxisEnable(sdh_->All, 1.0);
+			}
+		    catch (SDH::cSDHLibraryException* e)
+			{
+				ROS_ERROR("An exception was caught: %s", e->what());
+				delete e;
+			}
+		}
+		else{
 			ROS_ERROR_STREAM("Operation mode '" << req.operation_mode.data << "'  not supported");
 		}
 		return true;
