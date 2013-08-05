@@ -397,11 +397,15 @@ boost/thread.hpp
 -
 boost/bind.hpp
 -
+boost/foreach.hpp
+-
 ros/ros.h
 -
 urdf/model.h
 -
 actionlib/server/simple_action_server.h
+-
+control_toolbox/pid.h
 -
 std_msgs/Float32MultiArray.h
 -
@@ -1801,4 +1805,10 @@ boost/function.hpp
 -
 urdf_interface/link.h
 -
+
+/opt/ros/fuerte/stacks/ros_control/control_toolbox/include/control_toolbox/pid.h
+string
+-
+ros/node_handle.h
+/opt/ros/fuerte/stacks/ros_control/control_toolbox/include/control_toolbox/ros/node_handle.h
 

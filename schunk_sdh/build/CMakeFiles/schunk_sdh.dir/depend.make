@@ -132,4 +132,5 @@ CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/robot_model/coll
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/robot_model/urdf/include/urdf/model.h
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/robot_model/urdf_interface/include/urdf_interface/link.h
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/robot_model/urdf_interface/include/urdf_interface/model.h
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.o: /opt/ros/fuerte/stacks/ros_control/control_toolbox/include/control_toolbox/pid.h
 

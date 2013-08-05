@@ -65,10 +65,13 @@
 
 #include <boost/thread.hpp>
 #include <boost/bind.hpp>
+#include <boost/foreach.hpp>
 // ROS includes
 #include <ros/ros.h>
 #include <urdf/model.h>
 #include <actionlib/server/simple_action_server.h>
+
+#include <control_toolbox/pid.h>
 
 // ROS message includes
 #include <std_msgs/Float32MultiArray.h>
@@ -160,6 +163,16 @@ class SdhNode
 		bool hasNewGoal_;
 		std::string operationMode_; 
 		boost::thread softcontroller;
+		control_toolbox::Pid pid_controllers[7];
+		boost::mutex velomtx_;
+		boost::mutex posmtx_;
+	
+
+		std::vector<double> actualAngles;
+		
+		std::vector<double> actualVelocities;
+
+		ros::Time lasttime;
 	public:
 		/*!
 		* \brief Constructor for SdhNode class
@@ -198,8 +211,11 @@ class SdhNode
 		bool init()
 		{
 			//int i=1;
-			// boost:thread softcontroller(boost::bind( &SdhNode::softspeedcontroller, this ));
-			softcontroller = boost::thread(&SdhNode::softSpeedController, this,1);  
+			  BOOST_FOREACH( control_toolbox::Pid & pojed, pid_controllers)
+ 			   {
+     				   pojed.initPid(0.05, 0.0, 0.0, -5.0, 5.0); // TODO: for each different settings, plus from file not hard coded
+   				}
+			//softcontroller = boost::thread(&SdhNode::softSpeedController, this,1);  
 			// initialize member variables
 			isInitialized_ = false;
 			isDSAInitialized_ = false;
@@ -272,7 +288,7 @@ class SdhNode
 			state_.resize(axes_.size());
 
 			nh_.param("OperationMode", operationMode_, std::string("position"));
-			softcontroller.interrupt();
+			//softcontroller.interrupt();
 			return true;
 		}
 
@@ -288,8 +304,78 @@ class SdhNode
 		{
 			try
 			{
+			while(nh_.ok())
+			{
+	 			posmtx_.lock();
+						try
+						{
+				
+							actualAngles = sdh_->GetAxisActualAngle( axes_ );
+							//ROS_INFO("actu %f",actualAngles[0]);
+				
+						}
+						catch (SDH::cSDHLibraryException* e)
+						{
+							ROS_ERROR("fu: An exception was caught: %s", e->what());
+							delete e;
+						}
+				posmtx_.unlock();
+
+				//std::vector<double> actualVelocities;
+				velomtx_.lock();
+						try
+						{
+				
+							actualVelocities = sdh_->GetAxisActualVelocity( axes_ );
+				
+
+						}
+						catch (SDH::cSDHLibraryException* e)
+						{
+							ROS_ERROR("fa: An exception was caught: %s", e->what());
+							delete e;
+						}
+
+
+				velomtx_.unlock();
+
+				//we have current pos
+				std::vector<double> errorAngles_; // in degrees
+				errorAngles_.resize(DOF_);
+				int nn;
+				ros::Time currtime =ros::Time::now();
+				ros::Duration dt=currtime-lasttime;
+				if(actualAngles.size()==DOF_ and targetAngles_.size()==DOF_)
+				{
+					for(nn=0;nn<DOF_;nn++)
+						{
+						errorAngles_[nn] = actualAngles[nn]-targetAngles_[nn];
+						velocities_[nn]=pid_controllers[nn].updatePid(errorAngles_[nn],dt);
 			
-			ros::spin();
+
+						}
+					ROS_INFO("it will set this: %f,%f,%f,%f,%f,%f",velocities_[0],velocities_[1],velocities_[2],velocities_[3],velocities_[4],velocities_[5],velocities_[6]);
+					//sdh_->SetAxisTargetVelocity(axes_,velocities_);
+				}
+				else
+				{
+				//ROS_ERROR("wymiary");
+				ROS_ERROR("wymiary: %f %f",actualAngles.size(),targetAngles_.size());
+				//ROS_ERROR();
+				sleep(1);
+				BOOST_FOREACH( control_toolbox::Pid & pojed, pid_controllers)
+ 			  	 	{
+     				   	pojed.reset(); // TODO: for each different settings, plus from file not hard coded
+   					}
+				}
+				lasttime=currtime;
+				//ros::spin();
+				usleep(100);
+			
+			//ROS_INFO("wyy");
+				//ros::spin();
+			}
+
 			}
 			  catch (boost::thread_interrupted&) 
  			 { 
@@ -297,10 +383,13 @@ class SdhNode
  			 }
 			//pthread_exit(NULL);
 		}
+
+
+
 		void executeCB(const control_msgs::FollowJointTrajectoryGoalConstPtr &goal)
 		{			
 			ROS_INFO("sdh: executeCB");
-			if (operationMode_ != "position")
+			if (operationMode_ != "position" and operationMode_ != "softposition")
 			{
 				ROS_ERROR("%s: Rejected, sdh not in position mode", action_name_.c_str());
 				as_.setAborted();
@@ -720,12 +809,18 @@ class SdhNode
 						delete e;
 					}
 				}
+				else if( operationMode_ == "softposition")
+				{
+				ROS_DEBUG("moving sdh in softposition mode");
+					
+				}
 				else if (operationMode_ == "effort")
 				{
 					ROS_DEBUG("moving sdh in effort mode");
 					//sdh_->MoveVel(goal->trajectory.points[0].velocities);
 					ROS_WARN("Moving in effort mode currently disabled");
 				}
+
 				else
 				{
 					ROS_ERROR("sdh neither in position nor in velocity nor in effort mode. OperationMode = [%s]", operationMode_.c_str());
@@ -735,26 +830,34 @@ class SdhNode
 			}
 
 	 		// read and publish joint angles and velocities
-			std::vector<double> actualAngles;
+			//std::vector<double> actualAngles;
+			posmtx_.lock();
 			try
 			{
+				
 				actualAngles = sdh_->GetAxisActualAngle( axes_ );
+				
 			}
 			catch (SDH::cSDHLibraryException* e)
 			{
-				ROS_ERROR("An exception was caught: %s", e->what());
+				ROS_ERROR("ka: An exception was caught: %s", e->what());
 				delete e;
 			}
-			std::vector<double> actualVelocities;
+			posmtx_.unlock();
+			//std::vector<double> actualVelocities;
+			velomtx_.lock();
 			try
 			{
+				
 				actualVelocities = sdh_->GetAxisActualVelocity( axes_ );
+				
 			}
 			catch (SDH::cSDHLibraryException* e)
 			{
-				ROS_ERROR("An exception was caught: %s", e->what());
+				ROS_ERROR("ki: An exception was caught: %s", e->what());
 				delete e;
 			}
+			velomtx_.unlock();
 			
 			ROS_DEBUG("received %d angles from sdh",(int)actualAngles.size());
 			

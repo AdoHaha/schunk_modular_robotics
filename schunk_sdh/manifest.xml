@@ -23,5 +23,6 @@
   <depend package="rostest"/>
   <depend package="brics_actuator"/>
     <depend package="dlonurdf"/>
+ <depend package="control_toolbox"/>
 
 </package>
