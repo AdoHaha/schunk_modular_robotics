@@ -66,6 +66,7 @@
 #include <boost/thread.hpp>
 #include <boost/bind.hpp>
 #include <boost/foreach.hpp>
+#include <math.h>
 // ROS includes
 #include <ros/ros.h>
 #include <urdf/model.h>
@@ -166,13 +167,14 @@ class SdhNode
 		control_toolbox::Pid pid_controllers[7];
 		boost::mutex velomtx_;
 		boost::mutex posmtx_;
-	
-
+		boost::mutex velomtx2_;
+		bool stopreq; //= true;
 		std::vector<double> actualAngles;
 		
 		std::vector<double> actualVelocities;
 
 		ros::Time lasttime;
+		XmlRpc::XmlRpcValue softcontroller_params_list;
 	public:
 		/*!
 		* \brief Constructor for SdhNode class
@@ -210,10 +212,26 @@ class SdhNode
 		*/
 		bool init()
 		{
+			
+			//nh_.param("OperationMode", operationMode_, std::string("position"));
+			stopreq=false;
 			//int i=1;
+			  nh_.getParam("softcontroller_params", softcontroller_params_list);
+			int nn=0;
 			  BOOST_FOREACH( control_toolbox::Pid & pojed, pid_controllers)
  			   {
-     				   pojed.initPid(0.05, 0.0, 0.0, -5.0, 5.0); // TODO: for each different settings, plus from file not hard coded
+			double temp_p=static_cast<double>(softcontroller_params_list[nn]["p"]);
+			double temp_i=static_cast<double>(softcontroller_params_list[nn]["i"]);
+			double temp_d=static_cast<double>(softcontroller_params_list[nn]["d"]);
+			double temp_max_i=static_cast<double>(softcontroller_params_list[nn]["i_max"]);
+			double temp_min_i=static_cast<double>(softcontroller_params_list[nn]["i_min"]);
+			std::string temp_name=static_cast<std::string>(softcontroller_params_list[nn]["name"]);
+
+
+					ROS_INFO("for %s setting p: %f i: %f d: %f i_max: %f i_min: %f  \n",temp_name.c_str(),temp_p,temp_i,temp_d,temp_max_i,temp_min_i);
+     				   pojed.initPid(temp_p,temp_i,temp_d,temp_max_i,temp_min_i); // TODO: for each different settings, plus from file not hard coded
+//pojed.initPid(1,2,3,4,5);			
+	nn++;
    				}
 			//softcontroller = boost::thread(&SdhNode::softSpeedController, this,1);  
 			// initialize member variables
@@ -228,7 +246,7 @@ class SdhNode
 
 			// pointer to sdh
 			sdh_ = new SDH::cSDH(false, false, 0); //(_use_radians=false, bool _use_fahrenheit=false, int _debug_level=0)
-
+			
 			// implementation of service servers
 			srvServer_Init_ = nh_.advertiseService("init", &SdhNode::srvCallback_Init, this);
 			srvServer_Stop_ = nh_.advertiseService("stop", &SdhNode::srvCallback_Stop, this);
@@ -288,6 +306,14 @@ class SdhNode
 			state_.resize(axes_.size());
 
 			nh_.param("OperationMode", operationMode_, std::string("position"));
+			/*try
+			{
+			sdh_->Stop();
+			}
+			catch (SDH::cSDHLibraryException* e)
+				{
+			delete e;
+			}*/
 			//softcontroller.interrupt();
 			return true;
 		}
@@ -299,13 +325,18 @@ class SdhNode
 		* \param goal JointTrajectoryGoal
 		*/
 		//void executeCB(const pr2_controllers_msgs::JointTrajectoryGoalConstPtr &goal)
-		
+	/*************************************************************************** start ********************************************************************/	
 		void softSpeedController(int nr)
 		{
-			try
+			stopreq=false;
+
+						  BOOST_FOREACH( control_toolbox::Pid & pojed, pid_controllers)
+ 			   {
+     				   pojed.reset(); 
+   				}
+			while(!stopreq)
 			{
-			while(nh_.ok())
-			{
+		
 	 			posmtx_.lock();
 						try
 						{
@@ -319,6 +350,14 @@ class SdhNode
 							ROS_ERROR("fu: An exception was caught: %s", e->what());
 							delete e;
 						}
+
+
+
+	/*  BOOST_FOREACH( double & kat, actualAngles)
+ 			   {
+     				  kat=kat*Ma
+   				}*/
+	//	}
 				posmtx_.unlock();
 
 				//std::vector<double> actualVelocities;
@@ -345,47 +384,67 @@ class SdhNode
 				int nn;
 				ros::Time currtime =ros::Time::now();
 				ros::Duration dt=currtime-lasttime;
-				if(actualAngles.size()==DOF_ and targetAngles_.size()==DOF_)
+				double checker;
+				if((int)actualAngles.size()==DOF_ and (int)targetAngles_.size()==DOF_)
 				{
 					for(nn=0;nn<DOF_;nn++)
 						{
 						errorAngles_[nn] = actualAngles[nn]-targetAngles_[nn];
-						velocities_[nn]=pid_controllers[nn].updatePid(errorAngles_[nn],dt);
-			
+						checker=pid_controllers[nn].updatePid(errorAngles_[nn],dt);
+					//	ROS_INFO("checker: %f",checker);
+						if(isnan(checker))
+						{
+						pid_controllers[nn].reset();	
+						velomtx2_.lock();
+						velocities_[nn]=0;
+						velomtx2_.unlock();
+						}
+						else{
+						velomtx2_.lock();
+						velocities_[nn]=checker;
+						velomtx2_.unlock();
+						}
 
 						}
-					ROS_INFO("it will set this: %f,%f,%f,%f,%f,%f",velocities_[0],velocities_[1],velocities_[2],velocities_[3],velocities_[4],velocities_[5],velocities_[6]);
-					//sdh_->SetAxisTargetVelocity(axes_,velocities_);
+
+//ROS_INFO("errors: %f, %f, %f, %f, %f, %f, %f",errorAngles_[0],errorAngles_[1],errorAngles_[2],errorAngles_[3],errorAngles_[4],errorAngles_[5],errorAngles_[6]);
+//ROS_INFO("target angles: %f, %f, %f, %f, %f, %f, %f",targetAngles_[0],targetAngles_[1],targetAngles_[2],targetAngles_[3],targetAngles_[4],targetAngles_[5],targetAngles_[6]);
+//ROS_INFO("actual angles: %f, %f, %f, %f, %f, %f, %f",actualAngles[0],actualAngles[1],actualAngles[2],actualAngles[3],actualAngles[4],actualAngles[5],actualAngles[6]);
+//ROS_INFO("czas dt: %f ",dt.toSec());
+
+
+//					ROS_INFO("it will set this: %f,%f,%f,%f,%f,%f",velocities_[0],velocities_[1],velocities_[2],velocities_[3],velocities_[4],velocities_[5],velocities_[6]);
+//sleep(1);			
+					try
+					{
+					sdh_->SetAxisTargetVelocity(axes_,velocities_);
+					}
+					catch (SDH::cSDHLibraryException* e)
+						{		
+						ROS_ERROR("An exception was caught: %s", e->what());
+						delete e;
+						}
 				}
 				else
 				{
 				//ROS_ERROR("wymiary");
-				ROS_ERROR("wymiary: %f %f",actualAngles.size(),targetAngles_.size());
+//actualAngles = sdh_->GetAxisActualAngle( axes_ );
+				ROS_ERROR("wymiary: %i %i",actualAngles.size(),targetAngles_.size());
 				//ROS_ERROR();
 				sleep(1);
-				BOOST_FOREACH( control_toolbox::Pid & pojed, pid_controllers)
- 			  	 	{
-     				   	pojed.reset(); // TODO: for each different settings, plus from file not hard coded
-   					}
 				}
 				lasttime=currtime;
-				//ros::spin();
 				usleep(100);
-			
-			//ROS_INFO("wyy");
-				//ros::spin();
-			}
-
-			}
-			  catch (boost::thread_interrupted&) 
- 			 { 
+}
 			ROS_INFO("Interrupting softSpeedController");
- 			 }
-			//pthread_exit(NULL);
+/*	  BOOST_FOREACH( control_toolbox::Pid & pojed, pid_controllers)
+ 			   {
+     				   pojed.stop(); 
+   				}*/
 		}
 
 
-
+/************************************************************************************************end********************************************************************/
 		void executeCB(const control_msgs::FollowJointTrajectoryGoalConstPtr &goal)
 		{			
 			ROS_INFO("sdh: executeCB");
@@ -478,7 +537,7 @@ class SdhNode
 
 			// TODO: write proper lock!
 			while (hasNewGoal_ == true ) usleep(10000);
-
+			velomtx2_.lock();
 			velocities_[0] = velocities->data[0] * 180.0 / pi_; // sdh_knuckle_joint
 			velocities_[1] = velocities->data[5] * 180.0 / pi_; // sdh_finger22_joint
 			velocities_[2] = velocities->data[6] * 180.0 / pi_; // sdh_finger23_joint
@@ -486,7 +545,7 @@ class SdhNode
 			velocities_[4] = velocities->data[2] * 180.0 / pi_; // sdh_thumb3_joint
 			velocities_[5] = velocities->data[3] * 180.0 / pi_; // sdh_finger12_joint
 			velocities_[6] = velocities->data[4] * 180.0 / pi_; // sdh_finger13_joint
-
+			velomtx2_.unlock();
 			hasNewGoal_ = true;
 		}
  		bool parseDegFromJointValue(const brics_actuator::JointValue& val, double &deg_val){
@@ -723,10 +782,15 @@ class SdhNode
 		operationMode_ = req.operation_mode.data;
 		res.success.data = true;
 		if( operationMode_ == "position"){
-			softcontroller.interrupt();
+			//softcontroller.interrupt();
+			stopreq=true;
+			softcontroller.join();
 			sdh_->SetController(SDH::cSDH::eCT_POSE);
 		}else if( operationMode_ == "velocity"){
-			softcontroller.interrupt();
+			
+			//softcontroller.interrupt();
+			stopreq=true;
+			softcontroller.join();
 			try{
 				sdh_->SetController(SDH::cSDH::eCT_VELOCITY);
 				sdh_->SetAxisEnable(sdh_->All, 1.0);
@@ -739,8 +803,10 @@ class SdhNode
 		}
 		else if (operationMode_ == "softposition")
 		{	
-			softcontroller.interrupt();
-			softcontroller = boost::thread(&SdhNode::softSpeedController, this,1);  	
+			//softcontroller.interrupt();
+			stopreq=true;
+			softcontroller.join();
+				
 		     try{
 		            sdh_->SetController(SDH::cSDH::eCT_VELOCITY);
 		            sdh_->SetAxisEnable(sdh_->All, 1.0);
@@ -750,6 +816,10 @@ class SdhNode
 				ROS_ERROR("An exception was caught: %s", e->what());
 				delete e;
 			}
+
+			stopreq=false;
+			
+			softcontroller = boost::thread(&SdhNode::softSpeedController, this,1);  
 		}
 		else{
 			ROS_ERROR_STREAM("Operation mode '" << req.operation_mode.data << "'  not supported");
@@ -831,33 +901,36 @@ class SdhNode
 
 	 		// read and publish joint angles and velocities
 			//std::vector<double> actualAngles;
-			posmtx_.lock();
-			try
+			if(operationMode_!= "softposition")
 			{
+				posmtx_.lock();
+				try
+				{
 				
-				actualAngles = sdh_->GetAxisActualAngle( axes_ );
+					actualAngles = sdh_->GetAxisActualAngle( axes_ );
 				
-			}
-			catch (SDH::cSDHLibraryException* e)
-			{
-				ROS_ERROR("ka: An exception was caught: %s", e->what());
-				delete e;
-			}
-			posmtx_.unlock();
-			//std::vector<double> actualVelocities;
-			velomtx_.lock();
-			try
-			{
+				}
+				catch (SDH::cSDHLibraryException* e)
+				{
+					ROS_ERROR("ka: An exception was caught: %s", e->what());
+					delete e;
+				}
+				posmtx_.unlock();
+				//std::vector<double> actualVelocities;
+				velomtx_.lock();
+				try
+				{
 				
-				actualVelocities = sdh_->GetAxisActualVelocity( axes_ );
+					actualVelocities = sdh_->GetAxisActualVelocity( axes_ );
 				
+				}
+				catch (SDH::cSDHLibraryException* e)
+				{
+					ROS_ERROR("ki: An exception was caught: %s", e->what());
+					delete e;
+				}
+				velomtx_.unlock();
 			}
-			catch (SDH::cSDHLibraryException* e)
-			{
-				ROS_ERROR("ki: An exception was caught: %s", e->what());
-				delete e;
-			}
-			velomtx_.unlock();
 			
 			ROS_DEBUG("received %d angles from sdh",(int)actualAngles.size());
 			
