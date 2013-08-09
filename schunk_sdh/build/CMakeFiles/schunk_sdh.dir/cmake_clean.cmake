@@ -3,6 +3,7 @@ FILE(REMOVE_RECURSE
   "../src/schunk_sdh/msg"
   "../msg_gen"
   "CMakeFiles/schunk_sdh.dir/ros/src/sdh.o"
+  "CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.o"
   "../ros/bin/schunk_sdh.pdb"
   "../ros/bin/schunk_sdh"
 )

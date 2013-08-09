@@ -189,7 +189,7 @@ TOOLCHAINCONFIG:FILEPATH=TOOLCHAINCONFIG-NOTFOUND
 USERCONFIG:FILEPATH=USERCONFIG-NOTFOUND
 
 //Path to a file.
-_file_name:FILEPATH=/home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdh.cpp
+_file_name:FILEPATH=/home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/softspeedcontroller.cpp
 
 //Value Computed by CMake
 schunk_sdh_BINARY_DIR:STATIC=/home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build

@@ -56,132 +56,15 @@
  * If not, see <http://www.gnu.org/licenses/>.
  *
  ****************************************************************/
-
-//##################
-//#### includes ####
-
-// standard includes
-#include <unistd.h>
-
-#include <boost/thread.hpp>
-#include <boost/bind.hpp>
-#include <boost/foreach.hpp>
-#include <math.h>
-// ROS includes
-#include <ros/ros.h>
-#include <urdf/model.h>
-#include <actionlib/server/simple_action_server.h>
-
-#include <control_toolbox/pid.h>
-
-// ROS message includes
-#include <std_msgs/Float32MultiArray.h>
-#include <trajectory_msgs/JointTrajectory.h>
-#include <sensor_msgs/JointState.h>
-//#include <pr2_controllers_msgs/JointTrajectoryAction.h>robot_state_publisher
-#include <control_msgs/FollowJointTrajectoryAction.h>
-#include <pr2_controllers_msgs/JointTrajectoryControllerState.h>
-#include <schunk_sdh/TactileSensor.h>
-#include <schunk_sdh/TactileMatrix.h>
-#include <brics_actuator/JointVelocities.h>
-#include <brics_actuator/JointValue.h>
-
-// ROS service includes
-#include <cob_srvs/Trigger.h>
-#include <cob_srvs/SetOperationMode.h>
-
-// ROS diagnostic msgs
-#include <diagnostic_msgs/DiagnosticArray.h>
-
-// external includes
-#include <schunk_sdh/sdh.h>
-#include <schunk_sdh/dsa.h>
-
-/*!
-* \brief Implementation of ROS node for sdh.
-*
-* Offers actionlib and direct command interface.
-*/
-class SdhNode
-{
-	public:
-		/// create a handle for this node, initialize node
-		ros::NodeHandle nh_;
-	private:
-		// declaration of topics to publish
-		ros::Publisher topicPub_JointState_;
-		ros::Publisher topicPub_ControllerState_;
-		ros::Publisher topicPub_TactileSensor_;
-		ros::Publisher topicPub_Diagnostics_;
+// obj def
+#include "sdhros.h"
 		
-		// topic subscribers
-		ros::Subscriber subSetVelocitiesRaw_;
-		ros::Subscriber subSetVelocities_;
-
-		// service servers
-		ros::ServiceServer srvServer_Init_;
-		ros::ServiceServer srvServer_Stop_;
-		ros::ServiceServer srvServer_Recover_;
-		ros::ServiceServer srvServer_SetOperationMode_;
-
-		// actionlib server
-		//actionlib::SimpleActionServer<pr2_controllers_msgs::JointTrajectoryAction> as_;
-		actionlib::SimpleActionServer<control_msgs::FollowJointTrajectoryAction> as_;
-		std::string action_name_;
-
-		// service clients
-		//--
-//print fyufy
-		// other variables
-		SDH::cSDH *sdh_;
-		SDH::cDSA *dsa_;
-		std::vector<SDH::cSDH::eAxisState> state_;
-
-		std::string sdhdevicetype_;
-		std::string sdhdevicestring_;
-		std::string tcp_adr_;
-		std::string dsa_tcp_;
-		int dsa_tcp_port_;
-		int tcp_port_;
-		int sdhdevicenum_;
-		std::string dsadevicestring_;
-		int dsadevicenum_;
-		int baudrate_, id_read_, id_write_;
-		double timeout_;
-
-		bool isInitialized_;
-		bool isDSAInitialized_;
-		bool isError_;
-		int DOF_;
-		double pi_;
-		
-		trajectory_msgs::JointTrajectory traj_;
-		
-		std::vector<std::string> joint_names_;
-		std::vector<int> axes_;
-		std::vector<double> targetAngles_; // in degrees
-		std::vector<double> velocities_; // in rad/s
-		bool hasNewGoal_;
-		std::string operationMode_; 
-		boost::thread softcontroller;
-		control_toolbox::Pid pid_controllers[7];
-		boost::mutex velomtx_;
-		boost::mutex posmtx_;
-		boost::mutex velomtx2_;
-		bool stopreq; //= true;
-		std::vector<double> actualAngles;
-		
-		std::vector<double> actualVelocities;
-
-		ros::Time lasttime;
-		XmlRpc::XmlRpcValue softcontroller_params_list;
-	public:
 		/*!
 		* \brief Constructor for SdhNode class
 		*
 		* \param name Name for the actionlib server
 		*/
-		SdhNode(std::string name):
+		SdhNode::SdhNode(std::string name):
 			as_(nh_, name, boost::bind(&SdhNode::executeCB, this, _1),true),
 			action_name_(name)
 		{
@@ -197,7 +80,7 @@ class SdhNode
 		/*!
 		* \brief Destructor for SdhNode class
 		*/
-		~SdhNode() 
+		SdhNode::~SdhNode() 
 		{
 			if(isDSAInitialized_)
 				dsa_->Close();
@@ -210,7 +93,7 @@ class SdhNode
 		/*!
 		* \brief Initializes node to get parameters, subscribe and publish to topics.
 		*/
-		bool init()
+		bool SdhNode::init()
 		{
 			
 			//nh_.param("OperationMode", operationMode_, std::string("position"));
@@ -326,126 +209,11 @@ class SdhNode
 		*/
 		//void executeCB(const pr2_controllers_msgs::JointTrajectoryGoalConstPtr &goal)
 	/*************************************************************************** start ********************************************************************/	
-		void softSpeedController(int nr)
-		{
-			stopreq=false;
-
-						  BOOST_FOREACH( control_toolbox::Pid & pojed, pid_controllers)
- 			   {
-     				   pojed.reset(); 
-   				}
-			while(!stopreq)
-			{
-		
-	 			posmtx_.lock();
-						try
-						{
-				
-							actualAngles = sdh_->GetAxisActualAngle( axes_ );
-							//ROS_INFO("actu %f",actualAngles[0]);
-				
-						}
-						catch (SDH::cSDHLibraryException* e)
-						{
-							ROS_ERROR("fu: An exception was caught: %s", e->what());
-							delete e;
-						}
-
-
-
-	/*  BOOST_FOREACH( double & kat, actualAngles)
- 			   {
-     				  kat=kat*Ma
-   				}*/
-	//	}
-				posmtx_.unlock();
-
-				//std::vector<double> actualVelocities;
-				velomtx_.lock();
-						try
-						{
-				
-							actualVelocities = sdh_->GetAxisActualVelocity( axes_ );
-				
-
-						}
-						catch (SDH::cSDHLibraryException* e)
-						{
-							ROS_ERROR("fa: An exception was caught: %s", e->what());
-							delete e;
-						}
-
-
-				velomtx_.unlock();
-
-				//we have current pos
-				std::vector<double> errorAngles_; // in degrees
-				errorAngles_.resize(DOF_);
-				int nn;
-				ros::Time currtime =ros::Time::now();
-				ros::Duration dt=currtime-lasttime;
-				double checker;
-				if((int)actualAngles.size()==DOF_ and (int)targetAngles_.size()==DOF_)
-				{
-					for(nn=0;nn<DOF_;nn++)
-						{
-						errorAngles_[nn] = actualAngles[nn]-targetAngles_[nn];
-						checker=pid_controllers[nn].updatePid(errorAngles_[nn],dt);
-						ROS_INFO("checker: %f",checker);
-						if(isnan(checker))
-						{
-						pid_controllers[nn].reset();	
-						velomtx2_.lock();
-						velocities_[nn]=0;
-						velomtx2_.unlock();
-						}
-						else{
-						velomtx2_.lock();
-						velocities_[nn]=checker;
-						velomtx2_.unlock();
-						}
-
-						}
-
-//ROS_INFO("errors: %f, %f, %f, %f, %f, %f, %f",errorAngles_[0],errorAngles_[1],errorAngles_[2],errorAngles_[3],errorAngles_[4],errorAngles_[5],errorAngles_[6]);
-//ROS_INFO("target angles: %f, %f, %f, %f, %f, %f, %f",targetAngles_[0],targetAngles_[1],targetAngles_[2],targetAngles_[3],targetAngles_[4],targetAngles_[5],targetAngles_[6]);
-//ROS_INFO("actual angles: %f, %f, %f, %f, %f, %f, %f",actualAngles[0],actualAngles[1],actualAngles[2],actualAngles[3],actualAngles[4],actualAngles[5],actualAngles[6]);
-//ROS_INFO("czas dt: %f ",dt.toSec());
-
-
-//					ROS_INFO("it will set this: %f,%f,%f,%f,%f,%f",velocities_[0],velocities_[1],velocities_[2],velocities_[3],velocities_[4],velocities_[5],velocities_[6]);
-//sleep(1);			
-					try
-					{
-					sdh_->SetAxisTargetVelocity(axes_,velocities_);
-					}
-					catch (SDH::cSDHLibraryException* e)
-						{		
-						ROS_ERROR("An exception was caught: %s", e->what());
-						delete e;
-						}
-				}
-				else
-				{
-				//ROS_ERROR("wymiary");
-//actualAngles = sdh_->GetAxisActualAngle( axes_ );
-				ROS_ERROR("wymiary: %i %i",actualAngles.size(),targetAngles_.size());
-				//ROS_ERROR();
-				sleep(1);
-				}
-				lasttime=currtime;
-				usleep(100);
-}
-			ROS_INFO("Interrupting softSpeedController");
-/*	  BOOST_FOREACH( control_toolbox::Pid & pojed, pid_controllers)
- 			   {
-     				   pojed.stop(); 
-   				}*/
-		}
+	
 
 
 /************************************************************************************************end********************************************************************/
-		void executeCB(const control_msgs::FollowJointTrajectoryGoalConstPtr &goal)
+		void SdhNode::executeCB(const control_msgs::FollowJointTrajectoryGoalConstPtr &goal)
 		{			
 			ROS_INFO("sdh: executeCB");
 			if (operationMode_ != "position" and operationMode_ != "softposition")
@@ -518,7 +286,7 @@ class SdhNode
 			as_.setSucceeded();
 		}
 
-		void topicCallback_setVelocitiesRaw(const std_msgs::Float32MultiArrayPtr& velocities)
+		void SdhNode::topicCallback_setVelocitiesRaw(const std_msgs::Float32MultiArrayPtr& velocities)
 		{
 			if (!isInitialized_)
 			{
@@ -548,7 +316,7 @@ class SdhNode
 			velomtx2_.unlock();
 			hasNewGoal_ = true;
 		}
- 		bool parseDegFromJointValue(const brics_actuator::JointValue& val, double &deg_val){
+ 		bool SdhNode::parseDegFromJointValue(const brics_actuator::JointValue& val, double &deg_val){
 		    if (val.unit == "rad/s"){
 			deg_val = val.value  * 180.0 / pi_;
 			return true;
@@ -560,7 +328,7 @@ class SdhNode
 			return false;
 		    }
 		}
-		void topicCallback_setVelocities(const brics_actuator::JointVelocities::ConstPtr& msg)
+		void SdhNode::topicCallback_setVelocities(const brics_actuator::JointVelocities::ConstPtr& msg)
 		{
 			if (!isInitialized_)
 			{
@@ -598,7 +366,7 @@ class SdhNode
 		* \param req Service request
 		* \param res Service response
 		*/
-		bool srvCallback_Init(cob_srvs::Trigger::Request &req,
+		bool SdhNode::srvCallback_Init(cob_srvs::Trigger::Request &req,
 							cob_srvs::Trigger::Response &res )
 		{
 
@@ -729,7 +497,7 @@ class SdhNode
 		* \param req Service request
 		* \param res Service response
 		*/
-		bool srvCallback_Stop(cob_srvs::Trigger::Request &req,
+		bool SdhNode::srvCallback_Stop(cob_srvs::Trigger::Request &req,
 							cob_srvs::Trigger::Response &res )
 		{
 			ROS_INFO("Stopping sdh");
@@ -757,7 +525,7 @@ class SdhNode
 	* \param req Service request
 	* \param res Service response
 	*/
-	bool srvCallback_Recover(cob_srvs::Trigger::Request &req,
+	bool SdhNode::srvCallback_Recover(cob_srvs::Trigger::Request &req,
 							cob_srvs::Trigger::Response &res )
 	{
 		ROS_WARN("Service recover not implemented yet");
@@ -773,7 +541,7 @@ class SdhNode
 	* \param req Service request
 	* \param res Service response
 	*/
-	bool srvCallback_SetOperationMode(cob_srvs::SetOperationMode::Request &req,
+	bool SdhNode::srvCallback_SetOperationMode(cob_srvs::SetOperationMode::Request &req,
 									cob_srvs::SetOperationMode::Response &res )
 	{
 		hasNewGoal_ = false;
@@ -832,7 +600,7 @@ class SdhNode
 	*
 	* Sends target to hardware and reads out current configuration.
 	*/
-	void updateSdh()
+	void SdhNode::updateSdh()
 	{
 		ROS_DEBUG("updateJointState");
 		if (isInitialized_ == true)
@@ -1075,7 +843,7 @@ class SdhNode
 	*
 	* Reads out current values.
 	*/
-	void updateDsa()
+	void SdhNode::updateDsa()
 	{
                 static const int dsa_reorder[6] = { 2 ,3, 4, 5, 0 , 1 }; // t1,t2,f11,f12,f21,f22
 		ROS_DEBUG("updateTactileData");
@@ -1120,7 +888,7 @@ class SdhNode
 			topicPub_TactileSensor_.publish(msg);
 		}
 	}	 
-}; //SdhNode
+; //SdhNode
 
 /*!
 * \brief Main loop of ROS node.

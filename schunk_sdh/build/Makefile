@@ -347,6 +347,21 @@ ros/src/sdh.s:
 	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/sdh.s
 .PHONY : ros/src/sdh.s
 
+# target to build an object file
+ros/src/softspeedcontroller.o:
+	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.o
+.PHONY : ros/src/softspeedcontroller.o
+
+# target to preprocess a source file
+ros/src/softspeedcontroller.i:
+	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.i
+.PHONY : ros/src/softspeedcontroller.i
+
+# target to generate assembly for a file
+ros/src/softspeedcontroller.s:
+	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.s
+.PHONY : ros/src/softspeedcontroller.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -376,6 +391,9 @@ help:
 	@echo "... ros/src/sdh.o"
 	@echo "... ros/src/sdh.i"
 	@echo "... ros/src/sdh.s"
+	@echo "... ros/src/softspeedcontroller.o"
+	@echo "... ros/src/softspeedcontroller.i"
+	@echo "... ros/src/softspeedcontroller.s"
 .PHONY : help
 
 
