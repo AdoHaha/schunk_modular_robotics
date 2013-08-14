@@ -71,7 +71,7 @@ class SdhNode
 		void updateSdh();
 		void updateDsa();
 		bool parseDegFromJointValue(const brics_actuator::JointValue& val, double &deg_val);
-		
+		bool updateOperationMode();
 	private:
 		// declaration of topics to publish
 		ros::Publisher topicPub_JointState_;
@@ -141,3 +141,5 @@ class SdhNode
 		ros::Time lasttime;
 		XmlRpc::XmlRpcValue softcontroller_params_list;
 };	
+
+

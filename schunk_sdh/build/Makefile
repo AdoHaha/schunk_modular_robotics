@@ -39,10 +39,10 @@ RM = /usr/bin/cmake -E remove -f
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh
+CMAKE_SOURCE_DIR = /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build
+CMAKE_BINARY_DIR = /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -57,6 +57,47 @@ edit_cache:
 edit_cache/fast: edit_cache
 .PHONY : edit_cache/fast
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: install/local
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+.PHONY : install/strip/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -69,9 +110,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles /home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -164,17 +205,56 @@ ROSBUILD_gensrv_lisp/fast:
 .PHONY : ROSBUILD_gensrv_lisp/fast
 
 #=============================================================================
-# Target rules for targets named clean-test-results
+# Target rules for targets named _catkin_empty_exported_target
 
 # Build rule for target.
-clean-test-results: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 clean-test-results
-.PHONY : clean-test-results
+_catkin_empty_exported_target: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _catkin_empty_exported_target
+.PHONY : _catkin_empty_exported_target
 
 # fast build rule for target.
-clean-test-results/fast:
-	$(MAKE) -f CMakeFiles/clean-test-results.dir/build.make CMakeFiles/clean-test-results.dir/build
-.PHONY : clean-test-results/fast
+_catkin_empty_exported_target/fast:
+	$(MAKE) -f CMakeFiles/_catkin_empty_exported_target.dir/build.make CMakeFiles/_catkin_empty_exported_target.dir/build
+.PHONY : _catkin_empty_exported_target/fast
+
+#=============================================================================
+# Target rules for targets named clean_test_results
+
+# Build rule for target.
+clean_test_results: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 clean_test_results
+.PHONY : clean_test_results
+
+# fast build rule for target.
+clean_test_results/fast:
+	$(MAKE) -f CMakeFiles/clean_test_results.dir/build.make CMakeFiles/clean_test_results.dir/build
+.PHONY : clean_test_results/fast
+
+#=============================================================================
+# Target rules for targets named doxygen
+
+# Build rule for target.
+doxygen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 doxygen
+.PHONY : doxygen
+
+# fast build rule for target.
+doxygen/fast:
+	$(MAKE) -f CMakeFiles/doxygen.dir/build.make CMakeFiles/doxygen.dir/build
+.PHONY : doxygen/fast
+
+#=============================================================================
+# Target rules for targets named rosbuild_clean-test-results
+
+# Build rule for target.
+rosbuild_clean-test-results: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rosbuild_clean-test-results
+.PHONY : rosbuild_clean-test-results
+
+# fast build rule for target.
+rosbuild_clean-test-results/fast:
+	$(MAKE) -f CMakeFiles/rosbuild_clean-test-results.dir/build.make CMakeFiles/rosbuild_clean-test-results.dir/build
+.PHONY : rosbuild_clean-test-results/fast
 
 #=============================================================================
 # Target rules for targets named rosbuild_precompile
@@ -255,6 +335,19 @@ rospack_gensrv/fast:
 .PHONY : rospack_gensrv/fast
 
 #=============================================================================
+# Target rules for targets named run_tests
+
+# Build rule for target.
+run_tests: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 run_tests
+.PHONY : run_tests
+
+# fast build rule for target.
+run_tests/fast:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
+.PHONY : run_tests/fast
+
+#=============================================================================
 # Target rules for targets named schunk_sdh
 
 # Build rule for target.
@@ -332,35 +425,79 @@ tests/fast:
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
 .PHONY : tests/fast
 
-# target to build an object file
-ros/src/sdh.o:
-	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/sdh.o
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
+ros/src/sdh.o: ros/src/sdh.cpp.o
 .PHONY : ros/src/sdh.o
 
-# target to preprocess a source file
-ros/src/sdh.i:
-	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/sdh.i
+# target to build an object file
+ros/src/sdh.cpp.o:
+	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o
+.PHONY : ros/src/sdh.cpp.o
+
+ros/src/sdh.i: ros/src/sdh.cpp.i
 .PHONY : ros/src/sdh.i
 
-# target to generate assembly for a file
-ros/src/sdh.s:
-	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/sdh.s
+# target to preprocess a source file
+ros/src/sdh.cpp.i:
+	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.i
+.PHONY : ros/src/sdh.cpp.i
+
+ros/src/sdh.s: ros/src/sdh.cpp.s
 .PHONY : ros/src/sdh.s
 
-# target to build an object file
-ros/src/softspeedcontroller.o:
-	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.o
+# target to generate assembly for a file
+ros/src/sdh.cpp.s:
+	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.s
+.PHONY : ros/src/sdh.cpp.s
+
+ros/src/softspeedcontroller.o: ros/src/softspeedcontroller.cpp.o
 .PHONY : ros/src/softspeedcontroller.o
 
-# target to preprocess a source file
-ros/src/softspeedcontroller.i:
-	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.i
+# target to build an object file
+ros/src/softspeedcontroller.cpp.o:
+	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o
+.PHONY : ros/src/softspeedcontroller.cpp.o
+
+ros/src/softspeedcontroller.i: ros/src/softspeedcontroller.cpp.i
 .PHONY : ros/src/softspeedcontroller.i
 
-# target to generate assembly for a file
-ros/src/softspeedcontroller.s:
-	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.s
+# target to preprocess a source file
+ros/src/softspeedcontroller.cpp.i:
+	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.i
+.PHONY : ros/src/softspeedcontroller.cpp.i
+
+ros/src/softspeedcontroller.s: ros/src/softspeedcontroller.cpp.s
 .PHONY : ros/src/softspeedcontroller.s
+
+# target to generate assembly for a file
+ros/src/softspeedcontroller.cpp.s:
+	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.s
+.PHONY : ros/src/softspeedcontroller.cpp.s
 
 # Help Target
 help:
@@ -373,21 +510,31 @@ help:
 	@echo "... ROSBUILD_genmsg_py"
 	@echo "... ROSBUILD_gensrv_cpp"
 	@echo "... ROSBUILD_gensrv_lisp"
-	@echo "... clean-test-results"
+	@echo "... _catkin_empty_exported_target"
+	@echo "... clean_test_results"
+	@echo "... doxygen"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... rosbuild_clean-test-results"
 	@echo "... rosbuild_precompile"
 	@echo "... rosbuild_premsgsrvgen"
 	@echo "... rospack_genmsg"
 	@echo "... rospack_genmsg_all"
 	@echo "... rospack_genmsg_libexe"
 	@echo "... rospack_gensrv"
+	@echo "... run_tests"
 	@echo "... schunk_sdh"
 	@echo "... test"
 	@echo "... test-future"
 	@echo "... test-results"
 	@echo "... test-results-run"
 	@echo "... tests"
+	@echo "... gtest"
+	@echo "... gtest_main"
 	@echo "... ros/src/sdh.o"
 	@echo "... ros/src/sdh.i"
 	@echo "... ros/src/sdh.s"

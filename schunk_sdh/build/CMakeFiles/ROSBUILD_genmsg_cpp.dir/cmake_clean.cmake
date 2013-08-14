@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "../msg_gen"
-  "../src/schunk_sdh/msg"
   "../msg_gen"
+  "../src/schunk_sdh/msg"
   "CMakeFiles/ROSBUILD_genmsg_cpp"
   "../msg_gen/cpp/include/schunk_sdh/TactileMatrix.h"
   "../msg_gen/cpp/include/schunk_sdh/TactileSensor.h"

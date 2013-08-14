@@ -431,6 +431,8 @@
 					return true;
 				}
 				
+				// update operation type to one passed from sever
+				updateOperationMode();
 				//Init tactile data
 				if(!dsadevicestring_.empty() || dsa_tcp_.compare("yup")==0 )  {
 					ROS_INFO(dsa_tcp_.c_str());
@@ -541,15 +543,11 @@
 	* \param req Service request
 	* \param res Service response
 	*/
-	bool SdhNode::srvCallback_SetOperationMode(cob_srvs::SetOperationMode::Request &req,
-									cob_srvs::SetOperationMode::Response &res )
+	bool SdhNode::updateOperationMode()
 	{
-		hasNewGoal_ = false;
-		sdh_->Stop();
-		ROS_INFO("Set operation mode to [%s]", req.operation_mode.data.c_str());
-		operationMode_ = req.operation_mode.data;
-		res.success.data = true;
-		if( operationMode_ == "position"){
+	//updates operation mode to hardware controller
+	
+	if( operationMode_ == "position"){
 			//softcontroller.interrupt();
 			stopreq=true;
 			softcontroller.join();
@@ -592,6 +590,18 @@
 		else{
 			ROS_ERROR_STREAM("Operation mode '" << req.operation_mode.data << "'  not supported");
 		}
+	return true;
+	}
+	
+	bool SdhNode::srvCallback_SetOperationMode(cob_srvs::SetOperationMode::Request &req,
+									cob_srvs::SetOperationMode::Response &res )
+	{
+		hasNewGoal_ = false;
+		sdh_->Stop();
+		ROS_INFO("Set operation mode to [%s]", req.operation_mode.data.c_str());
+		operationMode_ = req.operation_mode.data;
+		res.success.data = true;
+		updateOperationMode();
 		return true;
 	}
 

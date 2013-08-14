@@ -4,8 +4,8 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdh.cpp" "/home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles/schunk_sdh.dir/ros/src/sdh.o"
-  "/home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/softspeedcontroller.cpp" "/home/ros/fuerte_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.o"
+  "/home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdh.cpp" "/home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o"
+  "/home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/softspeedcontroller.cpp" "/home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

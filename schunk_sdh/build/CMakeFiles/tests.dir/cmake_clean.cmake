@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "../msg_gen"
-  "../src/schunk_sdh/msg"
   "../msg_gen"
+  "../src/schunk_sdh/msg"
   "CMakeFiles/tests"
 )
 

@@ -1,7 +1,7 @@
 FILE(REMOVE_RECURSE
   "../msg_gen"
-  "../src/schunk_sdh/msg"
   "../msg_gen"
+  "../src/schunk_sdh/msg"
   "CMakeFiles/ROSBUILD_genmsg_py"
   "../src/schunk_sdh/msg/__init__.py"
   "../src/schunk_sdh/msg/_TactileMatrix.py"

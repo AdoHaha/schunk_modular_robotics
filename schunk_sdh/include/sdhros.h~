@@ -70,7 +70,8 @@ class SdhNode
 							cob_srvs::Trigger::Response &res );
 		void updateSdh();
 		void updateDsa();
-		
+		bool parseDegFromJointValue(const brics_actuator::JointValue& val, double &deg_val);
+		bool updateOperationMode();
 	private:
 		// declaration of topics to publish
 		ros::Publisher topicPub_JointState_;
