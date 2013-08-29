@@ -2,15 +2,23 @@
 /* my implementation of softController i.e. position controller that as an output has velocity commands for schunk hand
 */		
 
+#include <iostream>
+#include <iterator>  
+#include <algorithm>
+#include <fstream> 
+#include "boost/date_time/posix_time/posix_time.hpp" 
+			typedef boost::posix_time::ptime Time;
 
 	void SdhNode::softSpeedController(int nr)
 		{
 			stopreq=false;
 
+			Time t1;
 						  BOOST_FOREACH( control_toolbox::Pid & pojed, pid_controllers)
  			   {
      				   pojed.reset(); 
    				}
+   			std::ofstream CSVToFile("ava.csv", std::ofstream::out);
 			while(!stopreq)
 			{
 		
@@ -95,6 +103,10 @@
 					try
 					{
 					sdh_->SetAxisTargetVelocity(axes_,velocities_);
+					t1=boost::posix_time::microsec_clock::local_time();
+					CSVToFile<<to_iso_extended_string(t1)<<", ";
+					std::copy(velocities_.begin(),velocities_.end(), std::ostream_iterator<double>(CSVToFile, ", "));
+					CSVToFile<<"\n";
 					}
 					catch (SDH::cSDHLibraryException* e)
 						{		

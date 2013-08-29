@@ -42,7 +42,7 @@ import platform
 import sys
 
 # environment at generation time
-CMAKE_PREFIX_PATH = '/opt/ros/groovy'.split(';')
+CMAKE_PREFIX_PATH = '/home/ros/catkin_ws/install;/home/ros/catkin_ws/devel;/opt/ros/groovy'.split(';')
 setup_dir = '/usr/local'
 if setup_dir and setup_dir not in CMAKE_PREFIX_PATH:
     CMAKE_PREFIX_PATH.insert(0, setup_dir)

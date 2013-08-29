@@ -39,6 +39,7 @@
 #include <schunk_sdh/sdh.h>
 #include <schunk_sdh/dsa.h>
 
+#include<ostream>
 
 		/*!
 		* \brief Constructor for SdhNode class
@@ -72,7 +73,9 @@ class SdhNode
 		void updateDsa();
 		bool parseDegFromJointValue(const brics_actuator::JointValue& val, double &deg_val);
 		bool updateOperationMode();
+		bool testflag;
 	private:
+		speedvals 
 		// declaration of topics to publish
 		ros::Publisher topicPub_JointState_;
 		ros::Publisher topicPub_ControllerState_;
@@ -141,3 +144,5 @@ class SdhNode
 		ros::Time lasttime;
 		XmlRpc::XmlRpcValue softcontroller_params_list;
 };	
+
+

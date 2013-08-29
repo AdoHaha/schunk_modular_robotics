@@ -46,7 +46,7 @@ CMAKE_BINARY_DIR = /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/sc
 include CMakeFiles/rosbuild_clean-test-results.dir/progress.make
 
 CMakeFiles/rosbuild_clean-test-results:
-	if ! rm -rf /home/ros/.ros/test_results/schunk_sdh; then echo WARNING:\ failed\ to\ remove\ test-results\ directory ; fi
+	if ! rm -rf /home/ros/catkin_ws/build/test_results/schunk_sdh; then echo WARNING:\ failed\ to\ remove\ test-results\ directory ; fi
 
 rosbuild_clean-test-results: CMakeFiles/rosbuild_clean-test-results
 rosbuild_clean-test-results: CMakeFiles/rosbuild_clean-test-results.dir/build.make

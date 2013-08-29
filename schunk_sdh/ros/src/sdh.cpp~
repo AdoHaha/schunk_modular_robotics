@@ -588,7 +588,8 @@
 			softcontroller = boost::thread(&SdhNode::softSpeedController, this,1);  
 		}
 		else{
-			ROS_ERROR_STREAM("Operation mode '" << req.operation_mode.data << "'  not supported");
+		return false;
+			
 		}
 	return true;
 	}
@@ -601,7 +602,10 @@
 		ROS_INFO("Set operation mode to [%s]", req.operation_mode.data.c_str());
 		operationMode_ = req.operation_mode.data;
 		res.success.data = true;
-		updateOperationMode();
+		if(!updateOperationMode())
+		{
+		ROS_ERROR_STREAM("Operation mode '" << req.operation_mode.data << "'  not supported");
+		}
 		return true;
 	}
 

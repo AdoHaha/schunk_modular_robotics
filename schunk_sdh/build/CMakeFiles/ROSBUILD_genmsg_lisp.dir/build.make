@@ -61,8 +61,8 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_TactileSensor.lisp
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/roscpp_traits/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/roscpp_serialization/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/genmsg/package.xml
-../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/genpy/package.xml
-../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/message_runtime/package.xml
+../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/genpy/package.xml
+../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/message_runtime/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/rosconsole/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/std_msgs/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/rosgraph_msgs/package.xml
@@ -75,13 +75,13 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_TactileSensor.lisp
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/rosconsole_bridge/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/urdfdom/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/urdf/package.xml
-../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/common_msgs/geometry_msgs/package.xml
-../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/common_msgs/sensor_msgs/package.xml
-../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/common_msgs/trajectory_msgs/package.xml
+../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/geometry_msgs/package.xml
+../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/sensor_msgs/package.xml
+../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/trajectory_msgs/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/gencpp/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/genlisp/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/message_generation/package.xml
-../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/common_msgs/actionlib_msgs/package.xml
+../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/actionlib_msgs/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/rosgraph/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/rospack/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/roslib/package.xml
@@ -99,7 +99,7 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_TactileSensor.lisp
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/control_msgs/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/cob_extern/libntcan/manifest.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/cob_extern/libpcan/manifest.xml
-../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/common_msgs/diagnostic_msgs/package.xml
+../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/diagnostic_msgs/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/cob_common/brics_actuator/manifest.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/stacks/simulator_gazebo/gazebo_msgs/manifest.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/stacks/bullet/manifest.xml
@@ -112,18 +112,18 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_TactileSensor.lisp
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/rosservice/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/dynamic_reconfigure/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/manifest.xml
-../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/pr2mechanism/pr2_hardware_interface/manifest.xml
+../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/stacks/pr2_mechanism/pr2_hardware_interface/manifest.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/urdf_interface/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/orocos_kdl/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/kdl_parser/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/class_loader/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/pluginlib/package.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/share/angles/package.xml
-../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/ros_control/hardware_interface/manifest.xml
-../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/pr2mechanism/pr2_mechanism_model/manifest.xml
-../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/ros_control/controller_interface/manifest.xml
-../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/pr2mechanism/pr2_controller_interface/manifest.xml
-../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/ros_control/control_toolbox/manifest.xml
+../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/stacks/ros_control/hardware_interface/manifest.xml
+../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/stacks/pr2_mechanism/pr2_mechanism_model/manifest.xml
+../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/stacks/ros_control/controller_interface/manifest.xml
+../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/stacks/pr2_mechanism/pr2_controller_interface/manifest.xml
+../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/stacks/pr2_controllers/control_toolbox/manifest.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/dlonurdf/manifest.xml
 ../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/cob_common/cob_srvs/srv_gen/generated
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/stacks/pr2_controllers/pr2_controllers_msgs/msg_gen/generated
@@ -133,7 +133,7 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_TactileSensor.lisp
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/stacks/simulator_gazebo/gazebo_msgs/srv_gen/generated
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/msg_gen/generated
 ../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/srv_gen/generated
-../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/ros_control/control_toolbox/srv_gen/generated
+../msg_gen/lisp/TactileMatrix.lisp: /opt/ros/groovy/stacks/pr2_controllers/control_toolbox/srv_gen/generated
 ../msg_gen/lisp/TactileMatrix.lisp: /home/ros/groovy_workspace/sandbox/dlonurdf/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/lisp/TactileMatrix.lisp, ../msg_gen/lisp/_package.lisp, ../msg_gen/lisp/_package_TactileMatrix.lisp"
@@ -154,8 +154,8 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_TactileSensor.lisp
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/roscpp_traits/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/roscpp_serialization/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/genmsg/package.xml
-../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/genpy/package.xml
-../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/message_runtime/package.xml
+../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/genpy/package.xml
+../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/message_runtime/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/rosconsole/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/std_msgs/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/rosgraph_msgs/package.xml
@@ -168,13 +168,13 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_TactileSensor.lisp
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/rosconsole_bridge/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/urdfdom/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/urdf/package.xml
-../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/common_msgs/geometry_msgs/package.xml
-../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/common_msgs/sensor_msgs/package.xml
-../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/common_msgs/trajectory_msgs/package.xml
+../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/geometry_msgs/package.xml
+../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/sensor_msgs/package.xml
+../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/trajectory_msgs/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/gencpp/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/genlisp/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/message_generation/package.xml
-../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/common_msgs/actionlib_msgs/package.xml
+../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/actionlib_msgs/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/rosgraph/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/rospack/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/roslib/package.xml
@@ -192,7 +192,7 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_TactileSensor.lisp
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/control_msgs/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/cob_extern/libntcan/manifest.xml
 ../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/cob_extern/libpcan/manifest.xml
-../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/common_msgs/diagnostic_msgs/package.xml
+../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/diagnostic_msgs/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/cob_common/brics_actuator/manifest.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/stacks/simulator_gazebo/gazebo_msgs/manifest.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/stacks/bullet/manifest.xml
@@ -205,18 +205,18 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_TactileSensor.lisp
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/rosservice/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/dynamic_reconfigure/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/manifest.xml
-../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/pr2mechanism/pr2_hardware_interface/manifest.xml
+../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/stacks/pr2_mechanism/pr2_hardware_interface/manifest.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/urdf_interface/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/orocos_kdl/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/kdl_parser/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/class_loader/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/pluginlib/package.xml
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/share/angles/package.xml
-../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/ros_control/hardware_interface/manifest.xml
-../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/pr2mechanism/pr2_mechanism_model/manifest.xml
-../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/ros_control/controller_interface/manifest.xml
-../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/pr2mechanism/pr2_controller_interface/manifest.xml
-../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/ros_control/control_toolbox/manifest.xml
+../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/stacks/ros_control/hardware_interface/manifest.xml
+../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/stacks/pr2_mechanism/pr2_mechanism_model/manifest.xml
+../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/stacks/ros_control/controller_interface/manifest.xml
+../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/stacks/pr2_mechanism/pr2_controller_interface/manifest.xml
+../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/stacks/pr2_controllers/control_toolbox/manifest.xml
 ../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/dlonurdf/manifest.xml
 ../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/cob_common/cob_srvs/srv_gen/generated
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/stacks/pr2_controllers/pr2_controllers_msgs/msg_gen/generated
@@ -226,7 +226,7 @@ CMakeFiles/ROSBUILD_genmsg_lisp: ../msg_gen/lisp/_package_TactileSensor.lisp
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/stacks/simulator_gazebo/gazebo_msgs/srv_gen/generated
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/msg_gen/generated
 ../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/srv_gen/generated
-../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/ros_control/control_toolbox/srv_gen/generated
+../msg_gen/lisp/TactileSensor.lisp: /opt/ros/groovy/stacks/pr2_controllers/control_toolbox/srv_gen/generated
 ../msg_gen/lisp/TactileSensor.lisp: /home/ros/groovy_workspace/sandbox/dlonurdf/msg_gen/generated
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../msg_gen/lisp/TactileSensor.lisp, ../msg_gen/lisp/_package.lisp, ../msg_gen/lisp/_package_TactileSensor.lisp"

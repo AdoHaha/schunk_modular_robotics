@@ -95,7 +95,7 @@
 		*/
 		bool SdhNode::init()
 		{
-			
+			testflag=false;
 			//nh_.param("OperationMode", operationMode_, std::string("position"));
 			stopreq=false;
 			//int i=1;
