@@ -440,10 +440,28 @@ std_msgs/Bool.h
 std_msgs/String.h
 /home/ros/groovy_workspace/sandbox/cob_common/cob_srvs/srv_gen/cpp/include/cob_srvs/std_msgs/String.h
 
+/home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdh2.cpp
+iostream
+-
+vector
+-
+sdh/sdh.h
+/home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdh/sdh.h
+sdh/util.h
+/home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdh/util.h
+sdh/sdhlibrary_settings.h
+/home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdh/sdhlibrary_settings.h
+sdh/basisdef.h
+/home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdh/basisdef.h
+sdhoptions.h
+/home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdhoptions.h
+
 /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/softspeedcontroller.cpp
 sdhros.h
 /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdhros.h
 iostream
+-
+sstream
 -
 iterator
 -
@@ -453,6 +471,8 @@ fstream
 -
 boost/date_time/posix_time/posix_time.hpp
 /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/boost/date_time/posix_time/posix_time.hpp
+ostream
+-
 
 /opt/ros/groovy/include/XmlRpcDecl.h
 ros/macros.h

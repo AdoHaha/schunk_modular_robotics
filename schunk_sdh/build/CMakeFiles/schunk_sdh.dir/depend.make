@@ -133,6 +133,8 @@ CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/include/urdf_parser
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/stacks/pr2_controllers/control_toolbox/include/control_toolbox/pid.h
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/stacks/pr2_controllers/pr2_controllers_msgs/msg_gen/cpp/include/pr2_controllers_msgs/JointTrajectoryControllerState.h
 
+CMakeFiles/schunk_sdh.dir/ros/src/sdh2.cpp.o: ../ros/src/sdh2.cpp
+
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: ../common/include/schunk_sdh/basisdef.h
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: ../common/include/schunk_sdh/crc.h
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: ../common/include/schunk_sdh/dbg.h

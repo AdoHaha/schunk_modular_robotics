@@ -1,0 +1,95 @@
+
+//##################
+//#### includes ####
+
+// standard includes
+#include <unistd.h>
+
+#include <boost/thread.hpp>
+#include <boost/bind.hpp>
+#include <boost/foreach.hpp>
+#include <math.h>
+// ROS includes
+#include <ros/ros.h>
+#include <urdf/model.h>
+#include <actionlib/server/simple_action_server.h>
+
+#include <control_toolbox/pid.h>
+
+// ROS message includes
+#include <std_msgs/Float32MultiArray.h>
+#include <trajectory_msgs/JointTrajectory.h>
+#include <sensor_msgs/JointState.h>
+//#include <pr2_controllers_msgs/JointTrajectoryAction.h>robot_state_publisher
+#include <control_msgs/FollowJointTrajectoryAction.h>
+#include <pr2_controllers_msgs/JointTrajectoryControllerState.h>
+#include <schunk_sdh/TactileSensor.h>
+#include <schunk_sdh/TactileMatrix.h>
+#include <brics_actuator/JointVelocities.h>
+#include <brics_actuator/JointValue.h>
+
+// ROS service includes
+#include <cob_srvs/Trigger.h>
+#include <cob_srvs/SetOperationMode.h>
+
+// ROS diagnostic msgs
+#include <diagnostic_msgs/DiagnosticArray.h>
+
+// external includes
+#include <schunk_sdh/sdh.h>
+#include <schunk_sdh/dsa.h>
+
+#include<ostream>
+
+#include "sdhros.h"
+/* my implementation of softController i.e. position controller that as an output has velocity commands for schunk hand
+*/		
+
+#include <iostream>
+#include <iterator>  
+#include <algorithm>
+#include <fstream> 
+#include "boost/date_time/posix_time/posix_time.hpp" 
+
+int main(int argc, char** argv)
+{
+	// initialize ROS, specify name of node
+	ros::init(argc, argv, "schunk_sdh");
+
+	//SdhNode sdh_node(ros::this_node::getName() + "/joint_trajectory_action");
+	SdhNode sdh_node(ros::this_node::getName() + "/follow_joint_trajectory");
+	if (!sdh_node.init()) return 0;
+	
+	ROS_INFO("...sdh node running...");
+
+	double frequency;
+	if (sdh_node.nh_.hasParam("frequency"))
+	{
+		sdh_node.nh_.getParam("frequency", frequency);
+	}
+	else
+	{
+		frequency = 50; //Hz
+		ROS_WARN("Parameter frequency not available, setting to default value: %f Hz", frequency);
+	}
+
+	//sleep(1);
+	ros::Rate loop_rate(frequency); // Hz
+	while(sdh_node.nh_.ok())
+	{
+		// publish JointState
+		sdh_node.updateSdh();
+		
+		// publish TactileData
+		sdh_node.updateDsa();
+		
+		// sleep and waiting for messages, callbacks
+		ros::spinOnce();
+		loop_rate.sleep();
+	}
+
+	return 0;
+}
+
+
+

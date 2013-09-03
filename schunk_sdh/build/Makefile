@@ -475,6 +475,30 @@ ros/src/sdh.cpp.s:
 	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.s
 .PHONY : ros/src/sdh.cpp.s
 
+ros/src/sdh2.o: ros/src/sdh2.cpp.o
+.PHONY : ros/src/sdh2.o
+
+# target to build an object file
+ros/src/sdh2.cpp.o:
+	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/sdh2.cpp.o
+.PHONY : ros/src/sdh2.cpp.o
+
+ros/src/sdh2.i: ros/src/sdh2.cpp.i
+.PHONY : ros/src/sdh2.i
+
+# target to preprocess a source file
+ros/src/sdh2.cpp.i:
+	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/sdh2.cpp.i
+.PHONY : ros/src/sdh2.cpp.i
+
+ros/src/sdh2.s: ros/src/sdh2.cpp.s
+.PHONY : ros/src/sdh2.s
+
+# target to generate assembly for a file
+ros/src/sdh2.cpp.s:
+	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/sdh2.cpp.s
+.PHONY : ros/src/sdh2.cpp.s
+
 ros/src/softspeedcontroller.o: ros/src/softspeedcontroller.cpp.o
 .PHONY : ros/src/softspeedcontroller.o
 
@@ -538,6 +562,9 @@ help:
 	@echo "... ros/src/sdh.o"
 	@echo "... ros/src/sdh.i"
 	@echo "... ros/src/sdh.s"
+	@echo "... ros/src/sdh2.o"
+	@echo "... ros/src/sdh2.i"
+	@echo "... ros/src/sdh2.s"
 	@echo "... ros/src/softspeedcontroller.o"
 	@echo "... ros/src/softspeedcontroller.i"
 	@echo "... ros/src/softspeedcontroller.s"

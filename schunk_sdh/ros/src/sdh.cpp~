@@ -95,7 +95,7 @@
 		*/
 		bool SdhNode::init()
 		{
-			
+			testflag=false;
 			//nh_.param("OperationMode", operationMode_, std::string("position"));
 			stopreq=false;
 			//int i=1;
@@ -152,7 +152,7 @@
 			nh_.param("dsa_tcp", dsa_tcp_, std::string("no"));
 			nh_.param("tcp_port", tcp_port_, 23);
 			nh_.param("dsa_tcp_port", dsa_tcp_port_, 13000);
-			nh_.param("timeout", timeout_, (double)0.04);
+			nh_.param("timeout", timeout_, (double)0.1);
 			nh_.param("id_read", id_read_, 43);
 			nh_.param("id_write", id_write_, 42);
 
@@ -683,7 +683,7 @@
 
 	 		// read and publish joint angles and velocities
 			//std::vector<double> actualAngles;
-			if(operationMode_!= "softposition")
+			if(operationMode_!= "softposition") // we are getting this info from different thread
 			{
 				posmtx_.lock();
 				try

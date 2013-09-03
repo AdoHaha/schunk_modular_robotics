@@ -3,26 +3,31 @@
 */		
 
 #include <iostream>
+#include <sstream>
 #include <iterator>  
 #include <algorithm>
 #include <fstream> 
-#include "boost/date_time/posix_time/posix_time.hpp" 
-			typedef boost::posix_time::ptime Time;
+#include <boost/timer.hpp>
+#include <ostream>
+			//typedef boost::posix_time::ptime Time;
 
 	void SdhNode::softSpeedController(int nr)
 		{
 			stopreq=false;
-
+			std::vector<double> backupAngles; // in degrees
 			Time t1;
 						  BOOST_FOREACH( control_toolbox::Pid & pojed, pid_controllers)
  			   {
      				   pojed.reset(); 
    				}
-   			std::ofstream CSVToFile("ava.csv", std::ofstream::out);
+   			std::ofstream speedssetcsv("speedsset.csv", std::ofstream::out);
+   			std::ofstream speedsgetcsv("speedsget.csv", std::ofstream::out);
+   			std::ofstream positionscsv("positions.csv", std::ofstream::out);
 			while(!stopreq)
 			{
 		
 	 			posmtx_.lock();
+	 					backupAngles=actualAngles;
 						try
 						{
 				
@@ -34,6 +39,13 @@
 						{
 							ROS_ERROR("fu: An exception was caught: %s", e->what());
 							delete e;
+							actualAngles=backupAngles;
+						}
+						catch (SDH::cSDHErrorCommunication* e)
+						{
+						ROS_ERROR("fu: An exception was caught: %s", e->what());
+							delete e;
+							actualAngles=backupAngles;
 						}
 
 
@@ -70,6 +82,13 @@
 				ros::Time currtime =ros::Time::now();
 				ros::Duration dt=currtime-lasttime;
 				double checker;
+				t1=boost::posix_time::microsec_clock::local_time();
+				positionscsv<<to_iso_extended_string(t1)<<", ";
+				std::copy(actualAngles.begin(),actualAngles.end(), std::ostream_iterator<double>(positionscsv, ", "));
+				positionscsv<<"\n";
+				
+				
+				
 				if((int)actualAngles.size()==DOF_ and (int)targetAngles_.size()==DOF_)
 				{
 					for(nn=0;nn<DOF_;nn++)
@@ -94,7 +113,7 @@
 
 //ROS_INFO("errors: %f, %f, %f, %f, %f, %f, %f",errorAngles_[0],errorAngles_[1],errorAngles_[2],errorAngles_[3],errorAngles_[4],errorAngles_[5],errorAngles_[6]);
 //ROS_INFO("target angles: %f, %f, %f, %f, %f, %f, %f",targetAngles_[0],targetAngles_[1],targetAngles_[2],targetAngles_[3],targetAngles_[4],targetAngles_[5],targetAngles_[6]);
-//ROS_INFO("actual angles: %f, %f, %f, %f, %f, %f, %f",actualAngles[0],actualAngles[1],actualAngles[2],actualAngles[3],actualAngles[4],actualAngles[5],actualAngles[6]);
+ROS_INFO("actual angles: %f, %f, %f, %f, %f, %f, %f",actualAngles[0],actualAngles[1],actualAngles[2],actualAngles[3],actualAngles[4],actualAngles[5],actualAngles[6]);
 //ROS_INFO("czas dt: %f ",dt.toSec());
 
 
@@ -104,9 +123,16 @@
 					{
 					sdh_->SetAxisTargetVelocity(axes_,velocities_);
 					t1=boost::posix_time::microsec_clock::local_time();
-					CSVToFile<<to_iso_extended_string(t1)<<", ";
-					std::copy(velocities_.begin(),velocities_.end(), std::ostream_iterator<double>(CSVToFile, ", "));
-					CSVToFile<<"\n";
+					
+					speedssetcsv<<to_iso_extended_string(t1)<<", ";
+					std::copy(velocities_.begin(),velocities_.end(), std::ostream_iterator<double>(speedssetcsv, ", "));
+					speedssetcsv<<"\n";
+					
+					speedsgetcsv<<to_iso_extended_string(t1)<<", ";
+					std::copy(actualVelocities.begin(),actualVelocities.end(), std::ostream_iterator<double>(speedsgetcsv, ", "));
+					speedsgetcsv<<"\n";
+					
+
 					}
 					catch (SDH::cSDHLibraryException* e)
 						{		
@@ -118,9 +144,9 @@
 				{
 				//ROS_ERROR("wymiary");
 //actualAngles = sdh_->GetAxisActualAngle( axes_ );
-				ROS_ERROR("wymiary: %i %i",actualAngles.size(),targetAngles_.size());
+				//ROS_ERROR("wymiary: %i %i",actualAngles.size(),targetAngles_.size());
 				//ROS_ERROR();
-				sleep(1);
+				//sleep(1);
 				}
 				lasttime=currtime;
 				usleep(100);

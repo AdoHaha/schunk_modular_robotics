@@ -6,5 +6,5 @@ CXX_FLAGS = -O2 -g -I/home/ros/groovy_workspace/sandbox/schunk_modular_robotics/
 
 CXX_DEFINES = -DBOOST_CB_DISABLE_DEBUG
 
-# TARGET_FLAGS = -pthread -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN
+# TARGET_FLAGS = -pthread -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -pthread -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN
 
