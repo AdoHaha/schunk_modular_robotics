@@ -4,8 +4,8 @@ FILE(REMOVE_RECURSE
   "../src/schunk_sdh/msg"
   "CMakeFiles/ROSBUILD_genmsg_py"
   "../src/schunk_sdh/msg/__init__.py"
-  "../src/schunk_sdh/msg/_TactileMatrix.py"
   "../src/schunk_sdh/msg/_TactileSensor.py"
+  "../src/schunk_sdh/msg/_TactileMatrix.py"
 )
 
 # Per-language clean rules from dependency scanning.

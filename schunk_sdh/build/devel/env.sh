@@ -6,6 +6,6 @@ if [ $# -eq 0 ] ; then
   /bin/echo "Calling env.sh without arguments is not supported anymore. Instead spawn a subshell and source a setup file manually."
   exit 1
 else
-  . "/home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/devel/setup.sh"
+  . "/home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build/devel/setup.sh"
   exec "$@"
 fi

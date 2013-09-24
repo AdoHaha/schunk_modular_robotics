@@ -31,14 +31,11 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
-# The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
-
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh
+CMAKE_SOURCE_DIR = /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build
+CMAKE_BINARY_DIR = /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/schunk_sdh.dir/depend.make
@@ -57,8 +54,8 @@ CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/rostime/packa
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/roscpp_traits/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/roscpp_serialization/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/genmsg/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/genpy/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/message_runtime/package.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/genpy/package.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/message_runtime/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/rosconsole/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/std_msgs/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/rosgraph_msgs/package.xml
@@ -71,13 +68,13 @@ CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/collada_parse
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/rosconsole_bridge/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/urdfdom/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/urdf/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/common_msgs/geometry_msgs/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/common_msgs/sensor_msgs/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/common_msgs/trajectory_msgs/package.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/geometry_msgs/package.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/sensor_msgs/package.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/trajectory_msgs/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/gencpp/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/genlisp/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/message_generation/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/common_msgs/actionlib_msgs/package.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/actionlib_msgs/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/rosgraph/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/rospack/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/roslib/package.xml
@@ -90,13 +87,13 @@ CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/roslaunch/pac
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/rosunit/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/rostest/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/actionlib/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/cob_common/cob_srvs/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/igor/groovy_workspace/cob_common/cob_srvs/manifest.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/stacks/pr2_controllers/pr2_controllers_msgs/manifest.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/control_msgs/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/cob_extern/libntcan/manifest.xml
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/cob_extern/libpcan/manifest.xml
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/common_msgs/diagnostic_msgs/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/cob_common/brics_actuator/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/igor/groovy_workspace/cob_extern/libntcan/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/igor/groovy_workspace/cob_extern/libpcan/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/diagnostic_msgs/package.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/igor/groovy_workspace/cob_common/brics_actuator/manifest.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/stacks/simulator_gazebo/gazebo_msgs/manifest.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/stacks/bullet/manifest.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/std_srvs/package.xml
@@ -108,40 +105,40 @@ CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/rosmsg/packag
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/rosservice/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/dynamic_reconfigure/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/manifest.xml
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/pr2mechanism/pr2_hardware_interface/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/stacks/pr2_mechanism/pr2_hardware_interface/manifest.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/urdf_interface/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/orocos_kdl/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/kdl_parser/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/class_loader/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/pluginlib/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/share/angles/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/ros_control/hardware_interface/manifest.xml
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/pr2mechanism/pr2_mechanism_model/manifest.xml
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/ros_control/controller_interface/manifest.xml
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/pr2mechanism/pr2_controller_interface/manifest.xml
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/ros_control/control_toolbox/manifest.xml
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/dlonurdf/manifest.xml
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/cob_common/cob_srvs/srv_gen/generated
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/stacks/ros_control/hardware_interface/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/stacks/pr2_mechanism/pr2_mechanism_model/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/stacks/ros_control/controller_interface/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/stacks/pr2_mechanism/pr2_controller_interface/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/stacks/pr2_controllers/control_toolbox/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/igor/groovy_workspace/dlonurdf/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/igor/groovy_workspace/cob_common/cob_srvs/srv_gen/generated
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/stacks/pr2_controllers/pr2_controllers_msgs/msg_gen/generated
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/stacks/pr2_controllers/pr2_controllers_msgs/srv_gen/generated
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/cob_common/brics_actuator/msg_gen/generated
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/igor/groovy_workspace/cob_common/brics_actuator/msg_gen/generated
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/stacks/simulator_gazebo/gazebo_msgs/msg_gen/generated
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/stacks/simulator_gazebo/gazebo_msgs/srv_gen/generated
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/msg_gen/generated
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/srv_gen/generated
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/ros_control/control_toolbox/srv_gen/generated
-CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/ros/groovy_workspace/sandbox/dlonurdf/msg_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles $(CMAKE_PROGRESS_1)
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /opt/ros/groovy/stacks/pr2_controllers/control_toolbox/srv_gen/generated
+CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o: /home/igor/groovy_workspace/dlonurdf/msg_gen/generated
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -pthread -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN -o CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o -c /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdh.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -pthread -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN -o CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o -c /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/ros/src/sdh.cpp
 
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -pthread -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN -E /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdh.cpp > CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -pthread -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN -E /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/ros/src/sdh.cpp > CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.i
 
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -pthread -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN -S /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/sdh.cpp -o CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -pthread -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN -S /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/ros/src/sdh.cpp -o CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.s
 
 CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o.requires:
 .PHONY : CMakeFiles/schunk_sdh.dir/ros/src/sdh.cpp.o.requires
@@ -160,8 +157,8 @@ CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/sha
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/roscpp_traits/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/roscpp_serialization/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/genmsg/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/genpy/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/message_runtime/package.xml
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/genpy/package.xml
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/message_runtime/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/rosconsole/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/std_msgs/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/rosgraph_msgs/package.xml
@@ -174,13 +171,13 @@ CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/sha
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/rosconsole_bridge/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/urdfdom/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/urdf/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/common_msgs/geometry_msgs/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/common_msgs/sensor_msgs/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/common_msgs/trajectory_msgs/package.xml
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/geometry_msgs/package.xml
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/sensor_msgs/package.xml
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/trajectory_msgs/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/gencpp/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/genlisp/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/message_generation/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/common_msgs/actionlib_msgs/package.xml
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/actionlib_msgs/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/rosgraph/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/rospack/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/roslib/package.xml
@@ -193,13 +190,13 @@ CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/sha
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/rosunit/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/rostest/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/actionlib/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/cob_common/cob_srvs/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/igor/groovy_workspace/cob_common/cob_srvs/manifest.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/stacks/pr2_controllers/pr2_controllers_msgs/manifest.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/control_msgs/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/cob_extern/libntcan/manifest.xml
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/cob_extern/libpcan/manifest.xml
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/common_msgs/diagnostic_msgs/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/cob_common/brics_actuator/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/igor/groovy_workspace/cob_extern/libntcan/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/igor/groovy_workspace/cob_extern/libpcan/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/diagnostic_msgs/package.xml
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/igor/groovy_workspace/cob_common/brics_actuator/manifest.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/stacks/simulator_gazebo/gazebo_msgs/manifest.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/stacks/bullet/manifest.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/std_srvs/package.xml
@@ -211,40 +208,40 @@ CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/sha
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/rosservice/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/dynamic_reconfigure/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/manifest.xml
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/pr2mechanism/pr2_hardware_interface/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/stacks/pr2_mechanism/pr2_hardware_interface/manifest.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/urdf_interface/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/orocos_kdl/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/kdl_parser/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/class_loader/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/pluginlib/package.xml
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/share/angles/package.xml
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/ros_control/hardware_interface/manifest.xml
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/pr2mechanism/pr2_mechanism_model/manifest.xml
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/ros_control/controller_interface/manifest.xml
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/pr2mechanism/pr2_controller_interface/manifest.xml
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/ros_control/control_toolbox/manifest.xml
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/dlonurdf/manifest.xml
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/cob_common/cob_srvs/srv_gen/generated
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/stacks/ros_control/hardware_interface/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/stacks/pr2_mechanism/pr2_mechanism_model/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/stacks/ros_control/controller_interface/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/stacks/pr2_mechanism/pr2_controller_interface/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/stacks/pr2_controllers/control_toolbox/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/igor/groovy_workspace/dlonurdf/manifest.xml
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/igor/groovy_workspace/cob_common/cob_srvs/srv_gen/generated
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/stacks/pr2_controllers/pr2_controllers_msgs/msg_gen/generated
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/stacks/pr2_controllers/pr2_controllers_msgs/srv_gen/generated
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/cob_common/brics_actuator/msg_gen/generated
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/igor/groovy_workspace/cob_common/brics_actuator/msg_gen/generated
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/stacks/simulator_gazebo/gazebo_msgs/msg_gen/generated
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/stacks/simulator_gazebo/gazebo_msgs/srv_gen/generated
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/msg_gen/generated
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/srv_gen/generated
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/ros_control/control_toolbox/srv_gen/generated
-CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/ros/groovy_workspace/sandbox/dlonurdf/msg_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles $(CMAKE_PROGRESS_2)
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /opt/ros/groovy/stacks/pr2_controllers/control_toolbox/srv_gen/generated
+CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o: /home/igor/groovy_workspace/dlonurdf/msg_gen/generated
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -pthread -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN -o CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o -c /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/softspeedcontroller.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -pthread -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN -o CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o -c /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/ros/src/softspeedcontroller.cpp
 
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -pthread -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN -E /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/softspeedcontroller.cpp > CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -pthread -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN -E /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/ros/src/softspeedcontroller.cpp > CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.i
 
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -pthread -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN -S /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/ros/src/softspeedcontroller.cpp -o CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -pthread -DBT_USE_DOUBLE_PRECISION -DBT_EULER_DEFAULT_ZYX -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -DOSNAME_LINUX -DWITH_ESD_CAN -S /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/ros/src/softspeedcontroller.cpp -o CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.s
 
 CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o.requires:
 .PHONY : CMakeFiles/schunk_sdh.dir/ros/src/softspeedcontroller.cpp.o.requires
@@ -285,6 +282,6 @@ CMakeFiles/schunk_sdh.dir/clean:
 .PHONY : CMakeFiles/schunk_sdh.dir/clean
 
 CMakeFiles/schunk_sdh.dir/depend:
-	cd /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles/schunk_sdh.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build/CMakeFiles/schunk_sdh.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/schunk_sdh.dir/depend
 

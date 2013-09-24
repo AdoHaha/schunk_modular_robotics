@@ -31,14 +31,11 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
-# The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
-
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh
+CMAKE_SOURCE_DIR = /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build
+CMAKE_BINARY_DIR = /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build
 
 # Utility rule file for clean_test_results.
 
@@ -46,7 +43,7 @@ CMAKE_BINARY_DIR = /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/sc
 include CMakeFiles/clean_test_results.dir/progress.make
 
 CMakeFiles/clean_test_results:
-	/usr/bin/cmake -E remove_directory /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/test_results
+	/usr/bin/cmake -E remove_directory /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build/test_results
 
 clean_test_results: CMakeFiles/clean_test_results
 clean_test_results: CMakeFiles/clean_test_results.dir/build.make
@@ -61,6 +58,6 @@ CMakeFiles/clean_test_results.dir/clean:
 .PHONY : CMakeFiles/clean_test_results.dir/clean
 
 CMakeFiles/clean_test_results.dir/depend:
-	cd /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles/clean_test_results.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build/CMakeFiles/clean_test_results.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/clean_test_results.dir/depend
 

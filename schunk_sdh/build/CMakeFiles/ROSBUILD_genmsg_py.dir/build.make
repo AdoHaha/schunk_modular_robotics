@@ -31,14 +31,11 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
-# The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
-
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh
+CMAKE_SOURCE_DIR = /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build
+CMAKE_BINARY_DIR = /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build
 
 # Utility rule file for ROSBUILD_genmsg_py.
 
@@ -47,98 +44,11 @@ include CMakeFiles/ROSBUILD_genmsg_py.dir/progress.make
 
 CMakeFiles/ROSBUILD_genmsg_py: ../src/schunk_sdh/msg/__init__.py
 
-../src/schunk_sdh/msg/__init__.py: ../src/schunk_sdh/msg/_TactileMatrix.py
 ../src/schunk_sdh/msg/__init__.py: ../src/schunk_sdh/msg/_TactileSensor.py
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles $(CMAKE_PROGRESS_1)
+../src/schunk_sdh/msg/__init__.py: ../src/schunk_sdh/msg/_TactileMatrix.py
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/schunk_sdh/msg/__init__.py"
-	/opt/ros/groovy/share/rospy/rosbuild/scripts/genmsg_py.py --initpy /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/msg/TactileMatrix.msg /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/msg/TactileSensor.msg
-
-../src/schunk_sdh/msg/_TactileMatrix.py: ../msg/TactileMatrix.msg
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rospy/rosbuild/scripts/genmsg_py.py
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/lib/roslib/gendeps
-../src/schunk_sdh/msg/_TactileMatrix.py: ../manifest.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/cpp_common/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rostime/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/roscpp_traits/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/roscpp_serialization/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/genmsg/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/genpy/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/message_runtime/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosconsole/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/std_msgs/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosgraph_msgs/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/xmlrpcpp/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/roscpp/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/catkin/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/console_bridge/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/urdfdom_headers/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/collada_parser/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosconsole_bridge/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/urdfdom/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/urdf/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/common_msgs/geometry_msgs/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/common_msgs/sensor_msgs/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/common_msgs/trajectory_msgs/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/gencpp/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/genlisp/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/message_generation/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/common_msgs/actionlib_msgs/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosgraph/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rospack/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/roslib/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rospy/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosclean/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosmaster/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosout/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosparam/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/roslaunch/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosunit/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rostest/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/actionlib/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/cob_common/cob_srvs/manifest.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/pr2_controllers/pr2_controllers_msgs/manifest.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/control_msgs/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/cob_extern/libntcan/manifest.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/cob_extern/libpcan/manifest.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/common_msgs/diagnostic_msgs/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/cob_common/brics_actuator/manifest.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/simulator_gazebo/gazebo_msgs/manifest.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/bullet/manifest.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/std_srvs/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/message_filters/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/tf/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/topic_tools/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosbag/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosmsg/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosservice/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/dynamic_reconfigure/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/manifest.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/pr2mechanism/pr2_hardware_interface/manifest.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/urdf_interface/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/orocos_kdl/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/kdl_parser/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/class_loader/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/pluginlib/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/angles/package.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/ros_control/hardware_interface/manifest.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/pr2mechanism/pr2_mechanism_model/manifest.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/ros_control/controller_interface/manifest.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/pr2mechanism/pr2_controller_interface/manifest.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/ros_control/control_toolbox/manifest.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/dlonurdf/manifest.xml
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/cob_common/cob_srvs/srv_gen/generated
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/pr2_controllers/pr2_controllers_msgs/msg_gen/generated
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/pr2_controllers/pr2_controllers_msgs/srv_gen/generated
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/cob_common/brics_actuator/msg_gen/generated
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/simulator_gazebo/gazebo_msgs/msg_gen/generated
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/simulator_gazebo/gazebo_msgs/srv_gen/generated
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/msg_gen/generated
-../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/srv_gen/generated
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/ros_control/control_toolbox/srv_gen/generated
-../src/schunk_sdh/msg/_TactileMatrix.py: /home/ros/groovy_workspace/sandbox/dlonurdf/msg_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles $(CMAKE_PROGRESS_2)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/schunk_sdh/msg/_TactileMatrix.py"
-	/opt/ros/groovy/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/msg/TactileMatrix.msg
+	/opt/ros/groovy/share/rospy/rosbuild/scripts/genmsg_py.py --initpy /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/msg/TactileSensor.msg /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/msg/TactileMatrix.msg
 
 ../src/schunk_sdh/msg/_TactileSensor.py: ../msg/TactileSensor.msg
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/rospy/rosbuild/scripts/genmsg_py.py
@@ -151,8 +61,8 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/schunk_sdh/msg/__init__.py
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/roscpp_traits/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/roscpp_serialization/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/genmsg/package.xml
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/genpy/package.xml
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/message_runtime/package.xml
+../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/genpy/package.xml
+../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/message_runtime/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/rosconsole/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/std_msgs/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/rosgraph_msgs/package.xml
@@ -165,13 +75,13 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/schunk_sdh/msg/__init__.py
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/rosconsole_bridge/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/urdfdom/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/urdf/package.xml
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/common_msgs/geometry_msgs/package.xml
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/common_msgs/sensor_msgs/package.xml
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/common_msgs/trajectory_msgs/package.xml
+../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/geometry_msgs/package.xml
+../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/sensor_msgs/package.xml
+../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/trajectory_msgs/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/gencpp/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/genlisp/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/message_generation/package.xml
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/common_msgs/actionlib_msgs/package.xml
+../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/actionlib_msgs/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/rosgraph/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/rospack/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/roslib/package.xml
@@ -184,13 +94,13 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/schunk_sdh/msg/__init__.py
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/rosunit/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/rostest/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/actionlib/package.xml
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/cob_common/cob_srvs/manifest.xml
+../src/schunk_sdh/msg/_TactileSensor.py: /home/igor/groovy_workspace/cob_common/cob_srvs/manifest.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/stacks/pr2_controllers/pr2_controllers_msgs/manifest.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/control_msgs/package.xml
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/cob_extern/libntcan/manifest.xml
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/cob_extern/libpcan/manifest.xml
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/common_msgs/diagnostic_msgs/package.xml
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/cob_common/brics_actuator/manifest.xml
+../src/schunk_sdh/msg/_TactileSensor.py: /home/igor/groovy_workspace/cob_extern/libntcan/manifest.xml
+../src/schunk_sdh/msg/_TactileSensor.py: /home/igor/groovy_workspace/cob_extern/libpcan/manifest.xml
+../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/diagnostic_msgs/package.xml
+../src/schunk_sdh/msg/_TactileSensor.py: /home/igor/groovy_workspace/cob_common/brics_actuator/manifest.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/stacks/simulator_gazebo/gazebo_msgs/manifest.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/stacks/bullet/manifest.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/std_srvs/package.xml
@@ -202,37 +112,124 @@ CMakeFiles/ROSBUILD_genmsg_py: ../src/schunk_sdh/msg/__init__.py
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/rosservice/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/dynamic_reconfigure/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/manifest.xml
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/pr2mechanism/pr2_hardware_interface/manifest.xml
+../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/stacks/pr2_mechanism/pr2_hardware_interface/manifest.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/urdf_interface/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/orocos_kdl/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/kdl_parser/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/class_loader/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/pluginlib/package.xml
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/share/angles/package.xml
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/ros_control/hardware_interface/manifest.xml
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/pr2mechanism/pr2_mechanism_model/manifest.xml
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/ros_control/controller_interface/manifest.xml
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/pr2mechanism/pr2_controller_interface/manifest.xml
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/ros_control/control_toolbox/manifest.xml
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/dlonurdf/manifest.xml
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/cob_common/cob_srvs/srv_gen/generated
+../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/stacks/ros_control/hardware_interface/manifest.xml
+../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/stacks/pr2_mechanism/pr2_mechanism_model/manifest.xml
+../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/stacks/ros_control/controller_interface/manifest.xml
+../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/stacks/pr2_mechanism/pr2_controller_interface/manifest.xml
+../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/stacks/pr2_controllers/control_toolbox/manifest.xml
+../src/schunk_sdh/msg/_TactileSensor.py: /home/igor/groovy_workspace/dlonurdf/manifest.xml
+../src/schunk_sdh/msg/_TactileSensor.py: /home/igor/groovy_workspace/cob_common/cob_srvs/srv_gen/generated
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/stacks/pr2_controllers/pr2_controllers_msgs/msg_gen/generated
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/stacks/pr2_controllers/pr2_controllers_msgs/srv_gen/generated
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/cob_common/brics_actuator/msg_gen/generated
+../src/schunk_sdh/msg/_TactileSensor.py: /home/igor/groovy_workspace/cob_common/brics_actuator/msg_gen/generated
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/stacks/simulator_gazebo/gazebo_msgs/msg_gen/generated
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/stacks/simulator_gazebo/gazebo_msgs/srv_gen/generated
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/msg_gen/generated
 ../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/srv_gen/generated
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/ros_control/control_toolbox/srv_gen/generated
-../src/schunk_sdh/msg/_TactileSensor.py: /home/ros/groovy_workspace/sandbox/dlonurdf/msg_gen/generated
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles $(CMAKE_PROGRESS_3)
+../src/schunk_sdh/msg/_TactileSensor.py: /opt/ros/groovy/stacks/pr2_controllers/control_toolbox/srv_gen/generated
+../src/schunk_sdh/msg/_TactileSensor.py: /home/igor/groovy_workspace/dlonurdf/msg_gen/generated
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/schunk_sdh/msg/_TactileSensor.py"
-	/opt/ros/groovy/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/msg/TactileSensor.msg
+	/opt/ros/groovy/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/msg/TactileSensor.msg
+
+../src/schunk_sdh/msg/_TactileMatrix.py: ../msg/TactileMatrix.msg
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rospy/rosbuild/scripts/genmsg_py.py
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/lib/roslib/gendeps
+../src/schunk_sdh/msg/_TactileMatrix.py: ../manifest.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/cpp_common/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rostime/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/roscpp_traits/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/roscpp_serialization/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/genmsg/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/genpy/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/message_runtime/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosconsole/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/std_msgs/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosgraph_msgs/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/xmlrpcpp/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/roscpp/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/catkin/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/console_bridge/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/urdfdom_headers/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/collada_parser/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosconsole_bridge/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/urdfdom/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/urdf/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/geometry_msgs/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/sensor_msgs/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/trajectory_msgs/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/gencpp/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/genlisp/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/message_generation/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/actionlib_msgs/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosgraph/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rospack/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/roslib/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rospy/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosclean/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosmaster/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosout/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosparam/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/roslaunch/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosunit/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rostest/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/actionlib/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /home/igor/groovy_workspace/cob_common/cob_srvs/manifest.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/pr2_controllers/pr2_controllers_msgs/manifest.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/control_msgs/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /home/igor/groovy_workspace/cob_extern/libntcan/manifest.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /home/igor/groovy_workspace/cob_extern/libpcan/manifest.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/diagnostic_msgs/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /home/igor/groovy_workspace/cob_common/brics_actuator/manifest.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/simulator_gazebo/gazebo_msgs/manifest.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/bullet/manifest.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/std_srvs/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/message_filters/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/tf/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/topic_tools/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosbag/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosmsg/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/rosservice/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/dynamic_reconfigure/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/manifest.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/pr2_mechanism/pr2_hardware_interface/manifest.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/urdf_interface/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/orocos_kdl/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/kdl_parser/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/class_loader/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/pluginlib/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/share/angles/package.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/ros_control/hardware_interface/manifest.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/pr2_mechanism/pr2_mechanism_model/manifest.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/ros_control/controller_interface/manifest.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/pr2_mechanism/pr2_controller_interface/manifest.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/pr2_controllers/control_toolbox/manifest.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /home/igor/groovy_workspace/dlonurdf/manifest.xml
+../src/schunk_sdh/msg/_TactileMatrix.py: /home/igor/groovy_workspace/cob_common/cob_srvs/srv_gen/generated
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/pr2_controllers/pr2_controllers_msgs/msg_gen/generated
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/pr2_controllers/pr2_controllers_msgs/srv_gen/generated
+../src/schunk_sdh/msg/_TactileMatrix.py: /home/igor/groovy_workspace/cob_common/brics_actuator/msg_gen/generated
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/simulator_gazebo/gazebo_msgs/msg_gen/generated
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/simulator_gazebo/gazebo_msgs/srv_gen/generated
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/msg_gen/generated
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/simulator_gazebo/gazebo/srv_gen/generated
+../src/schunk_sdh/msg/_TactileMatrix.py: /opt/ros/groovy/stacks/pr2_controllers/control_toolbox/srv_gen/generated
+../src/schunk_sdh/msg/_TactileMatrix.py: /home/igor/groovy_workspace/dlonurdf/msg_gen/generated
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../src/schunk_sdh/msg/_TactileMatrix.py"
+	/opt/ros/groovy/share/rospy/rosbuild/scripts/genmsg_py.py --noinitpy /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/msg/TactileMatrix.msg
 
 ROSBUILD_genmsg_py: CMakeFiles/ROSBUILD_genmsg_py
 ROSBUILD_genmsg_py: ../src/schunk_sdh/msg/__init__.py
-ROSBUILD_genmsg_py: ../src/schunk_sdh/msg/_TactileMatrix.py
 ROSBUILD_genmsg_py: ../src/schunk_sdh/msg/_TactileSensor.py
+ROSBUILD_genmsg_py: ../src/schunk_sdh/msg/_TactileMatrix.py
 ROSBUILD_genmsg_py: CMakeFiles/ROSBUILD_genmsg_py.dir/build.make
 .PHONY : ROSBUILD_genmsg_py
 
@@ -245,6 +242,6 @@ CMakeFiles/ROSBUILD_genmsg_py.dir/clean:
 .PHONY : CMakeFiles/ROSBUILD_genmsg_py.dir/clean
 
 CMakeFiles/ROSBUILD_genmsg_py.dir/depend:
-	cd /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/CMakeFiles/ROSBUILD_genmsg_py.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build/CMakeFiles/ROSBUILD_genmsg_py.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ROSBUILD_genmsg_py.dir/depend
 

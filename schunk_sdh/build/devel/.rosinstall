@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/ros/groovy_workspace/sandbox/schunk_modular_robotics/schunk_sdh/build/devel/setup.sh
+    local-name: /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/build/devel/setup.sh
