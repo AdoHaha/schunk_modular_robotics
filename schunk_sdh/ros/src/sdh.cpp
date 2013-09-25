@@ -235,7 +235,7 @@
 				as_.setAborted();
 				return;
 			}
-			while (hasNewGoal_ == true ) usleep(10000);
+			while (hasNewGoal_ == true and operationMode_ != "softposition" ) usleep(10000);
 
 			// \todo TODO: use joint_names for assigning values
 			targetAngles_.resize(DOF_);
@@ -249,13 +249,14 @@
 			ROS_INFO("received new position goal: [['sdh_knuckle_joint', 'sdh_thumb_2_joint', 'sdh_thumb_3_joint', 'sdh_finger_12_joint', 'sdh_finger_13_joint', 'sdh_finger_22_joint', 'sdh_finger_23_joint']] = [%f,%f,%f,%f,%f,%f,%f]",goal->trajectory.points[0].positions[0],goal->trajectory.points[0].positions[1],goal->trajectory.points[0].positions[2],goal->trajectory.points[0].positions[3],goal->trajectory.points[0].positions[4],goal->trajectory.points[0].positions[5],goal->trajectory.points[0].positions[6]);
 		
 			hasNewGoal_ = true;
-			
+			if(operationMode_ != "softposition")
+			{
 			usleep(500000); // needed sleep until sdh starts to change status from idle to moving
 			
 			bool finished = false;
 			while(finished == false)
 			{
-				if (as_.isNewGoalAvailable())
+				if (as_.isNewGoalAvailable() && operationMode_ != "softposition")
 				{
 					ROS_WARN("%s: Aborted", action_name_.c_str());
 					as_.setAborted();
@@ -283,7 +284,9 @@
 			//result_.result.data = "succesfully received new goal";
 			//result_.success = 1;
 			//as_.setSucceeded(result_);
+			}
 			as_.setSucceeded();
+			
 		}
 
 		void SdhNode::topicCallback_setVelocitiesRaw(const std_msgs::Float32MultiArrayPtr& velocities)
@@ -697,9 +700,9 @@
 					ROS_ERROR("ka: An exception was caught: %s", e->what());
 					delete e;
 				}
-				posmtx_.unlock();
+				
 				//std::vector<double> actualVelocities;
-				velomtx_.lock();
+				
 				try
 				{
 				
@@ -711,7 +714,7 @@
 					ROS_ERROR("ki: An exception was caught: %s", e->what());
 					delete e;
 				}
-				velomtx_.unlock();
+				posmtx_.unlock();
 			}
 			
 			ROS_DEBUG("received %d angles from sdh",(int)actualAngles.size());
@@ -737,6 +740,7 @@
 			//std::copy(names, names + 7, msg.name);
 			/*msg.name={'sdh_knuckle_joint', 'sdh_thumb_2_joint', 'sdh_thumb_3_joint', 'sdh_finger_12_joint', 'sdh_finger_13_joint', 'sdh_finger_22_joint', 'sdh_finger_23_joint','sdh_finger_21_joint'};*/
 			// pos
+			
 			msg.position[0] = actualAngles[0]*pi_/180.0; // sdh_knuckle_joint
 			msg.position[1] = actualAngles[3]*pi_/180.0; // sdh_thumb_2_joint
 			msg.position[2] = actualAngles[4]*pi_/180.0; // sdh_thumb_3_joint
@@ -813,7 +817,9 @@
 			topicPub_ControllerState_.publish(controllermsg);
 
 			// read sdh status
+			posmtx_.lock();
 			state_ = sdh_->GetAxisActualState(axes_);
+			posmtx_.unlock();
 		}
 		else
 		{

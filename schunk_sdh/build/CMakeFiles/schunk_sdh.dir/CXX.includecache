@@ -442,10 +442,6 @@ std_msgs/String.h
 sdhros.h
 /home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/ros/src/sdhros.h
 
-/home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/ros/src/softspeedcontroller.cpp
-sdhros.h
-/home/igor/groovy_workspace/schunk_modular_robotics/schunk_sdh/ros/src/sdhros.h
-
 /opt/ros/groovy/include/XmlRpcDecl.h
 ros/macros.h
 -

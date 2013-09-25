@@ -35,10 +35,10 @@
      				  kat=kat*Ma
    				}*/
 	//	}
-				posmtx_.unlock();
+				
 
 				//std::vector<double> actualVelocities;
-				velomtx_.lock();
+				
 						try
 						{
 				
@@ -53,7 +53,7 @@
 						}
 
 
-				velomtx_.unlock();
+				posmtx_.unlock();
 
 				//we have current pos
 				std::vector<double> errorAngles_; // in degrees
@@ -66,20 +66,20 @@
 				{
 					for(nn=0;nn<DOF_;nn++)
 						{
-						errorAngles_[nn] = -actualAngles[nn]+targetAngles_[nn];
+						errorAngles_[nn] = targetAngles_[nn]-actualAngles[nn];
 						checker=pid_controllers[nn].updatePid(-errorAngles_[nn],dt); // strange error def inside updatePid
 					//	ROS_INFO("checker: %f",checker);
 						if(isnan(checker))
 						{
 						pid_controllers[nn].reset();	
-						velomtx2_.lock();
+						//velomtx2_.lock();
 						velocities_[nn]=0;
-						velomtx2_.unlock();
+						//velomtx2_.unlock();
 						}
 						else{
-						velomtx2_.lock();
+						//velomtx2_.lock();
 						velocities_[nn]=checker;
-						velomtx2_.unlock();
+						//velomtx2_.unlock();
 						}
 
 						}
@@ -92,6 +92,7 @@
 
 //					ROS_INFO("it will set this: %f,%f,%f,%f,%f,%f",velocities_[0],velocities_[1],velocities_[2],velocities_[3],velocities_[4],velocities_[5],velocities_[6]);
 //sleep(1);			
+                                        posmtx_.lock();
 					try
 					{
 					sdh_->SetAxisTargetVelocity(axes_,velocities_);
@@ -101,6 +102,7 @@
 						ROS_ERROR("An exception was caught: %s", e->what());
 						delete e;
 						}
+				        posmtx_.unlock();
 				}
 				else
 				{
