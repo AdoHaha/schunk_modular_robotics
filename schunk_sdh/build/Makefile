@@ -448,6 +448,30 @@ gtest_main/fast:
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+ros/src/pid.o: ros/src/pid.cpp.o
+.PHONY : ros/src/pid.o
+
+# target to build an object file
+ros/src/pid.cpp.o:
+	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/pid.cpp.o
+.PHONY : ros/src/pid.cpp.o
+
+ros/src/pid.i: ros/src/pid.cpp.i
+.PHONY : ros/src/pid.i
+
+# target to preprocess a source file
+ros/src/pid.cpp.i:
+	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/pid.cpp.i
+.PHONY : ros/src/pid.cpp.i
+
+ros/src/pid.s: ros/src/pid.cpp.s
+.PHONY : ros/src/pid.s
+
+# target to generate assembly for a file
+ros/src/pid.cpp.s:
+	$(MAKE) -f CMakeFiles/schunk_sdh.dir/build.make CMakeFiles/schunk_sdh.dir/ros/src/pid.cpp.s
+.PHONY : ros/src/pid.cpp.s
+
 ros/src/sdh.o: ros/src/sdh.cpp.o
 .PHONY : ros/src/sdh.o
 
@@ -532,6 +556,9 @@ help:
 	@echo "... tests"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... ros/src/pid.o"
+	@echo "... ros/src/pid.i"
+	@echo "... ros/src/pid.s"
 	@echo "... ros/src/sdh.o"
 	@echo "... ros/src/sdh.i"
 	@echo "... ros/src/sdh.s"

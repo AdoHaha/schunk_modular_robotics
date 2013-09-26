@@ -3,50 +3,50 @@ softcontroller_params:
   - 
     d: 0.0
     i: 0.005
-    i_max: 10.0
-    i_min: -10.0
+    i_max: 40.0
+    i_min: -40.0
     name: sdh_knuckle_joint
-    p: 0.5
+    p: 20.0
   - 
     d: 0.0
     i: 0.005 #0.001
-    i_max: 10.0
-    i_min: -10.0
+    i_max: 40.0
+    i_min: -40.0
     name: sdh_finger_22_joint
-    p: 0.5
+    p: 20.0
   - 
     d: 0.0
     i: 0.005
-    i_max: 10.0
-    i_min: -10.0
+    i_max: 40.0
+    i_min: -40.0
     name: sdh_finger_23_joint
-    p: 0.5
+    p: 20.0
   - 
     d: 0.0
     i: 0.005
-    i_max: 10.0
-    i_min: -10.0
+    i_max: 40.0
+    i_min: -40.0
     name: sdh_thumb_2_joint
-    p: 0.5
+    p: 20.0
   - 
     d: 0.0
     i: 0.005
-    i_max: 10.0
-    i_min: -10.0
+    i_max: 40.0
+    i_min: -40.0
     name: sdh_thumb_3_joint
-    p: 0.5
+    p: 20.0
   - 
     d: 0.0
     i: 0.005
-    i_max: 10.0
-    i_min: -10.0
+    i_max: 40.0
+    i_min: -40.0
     name: sdh_finger_12_joint
-    p: 0.5
+    p: 20.0
   - 
     d: 0.0
     i: 0.005
-    i_max: 10.0
-    i_min: -10.0
+    i_max: 40.0
+    i_min: -40.0
     name: sdh_finger_13_joint
-    p: 0.5
+    p: 20.0
 

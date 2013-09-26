@@ -73,7 +73,7 @@
 						{
 						pid_controllers[nn].reset();	
 						//velomtx2_.lock();
-						//velocities_[nn]=0;
+						velocities_[nn]=0;
 						//velomtx2_.unlock();
 						}
 						else{

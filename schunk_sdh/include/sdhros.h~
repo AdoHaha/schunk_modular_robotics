@@ -14,7 +14,7 @@
 #include <urdf/model.h>
 #include <actionlib/server/simple_action_server.h>
 
-#include <control_toolbox/pid.h>
+#include <pid.h>
 
 // ROS message includes
 #include <std_msgs/Float32MultiArray.h>
@@ -59,6 +59,7 @@ class SdhNode
 		bool init();
 		void executeCB(const control_msgs::FollowJointTrajectoryGoalConstPtr &goal);
 		void topicCallback_setVelocitiesRaw(const std_msgs::Float32MultiArrayPtr& velocities);
+		void topicCallback_setPositions(const control_msgs::FollowJointTrajectoryGoalConstPtr &goal);
 	    void topicCallback_setVelocities(const brics_actuator::JointVelocities::ConstPtr& msg);
 		bool srvCallback_Stop(cob_srvs::Trigger::Request &req,
 							cob_srvs::Trigger::Response &res );
@@ -82,7 +83,7 @@ class SdhNode
 		// topic subscribers
 		ros::Subscriber subSetVelocitiesRaw_;
 		ros::Subscriber subSetVelocities_;
-
+                ros::Subscriber subSetPositions_;
 		// service servers
 		ros::ServiceServer srvServer_Init_;
 		ros::ServiceServer srvServer_Stop_;
@@ -91,7 +92,7 @@ class SdhNode
 
 		// actionlib server
 		//actionlib::SimpleActionServer<pr2_controllers_msgs::JointTrajectoryAction> as_;
-		actionlib::SimpleActionServer<control_msgs::FollowJointTrajectoryAction> as_;
+		actionlib::SimpleActionServer<control_msgs::FollowJointTrajectoryAction > as_;
 		std::string action_name_;
 
 		// service clients
@@ -141,3 +142,5 @@ class SdhNode
 		ros::Time lasttime;
 		XmlRpc::XmlRpcValue softcontroller_params_list;
 };	
+
+

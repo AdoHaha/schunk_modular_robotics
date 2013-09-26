@@ -33,7 +33,7 @@ rosbuild_genmsg()
 # add include search paths
 INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/common/include)
 
-rosbuild_add_executable(${PROJECT_NAME} ros/src/sdh.cpp ros/src/softspeedcontroller.cpp)
+rosbuild_add_executable(${PROJECT_NAME} ros/src/sdh.cpp ros/src/softspeedcontroller.cpp ros/src/pid.cpp)
 #rosbuild_add_executable(${PROJECT_NAME} ros/src/${PROJECT_NAME}.cpp ros/src/sdhWrapper.cpp)
 #rosbuild_add_executable(${PROJECT_NAME}_demo ros/src/${PROJECT_NAME}_demo.cpp ros/src/dsaboost.cpp)
 #rosbuild_add_executable(${PROJECT_NAME}_driver ros/src/${PROJECT_NAME}_driver.cpp ros/src/dsaboost.cpp)

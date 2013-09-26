@@ -67,7 +67,7 @@
 					for(nn=0;nn<DOF_;nn++)
 						{
 						errorAngles_[nn] = targetAngles_[nn]-actualAngles[nn];
-						checker=pid_controllers[nn].updatePid(-errorAngles_[nn],dt); // strange error def inside updatePid
+						checker=pid_controllers[nn].updatemaxPid(-errorAngles_[nn],dt); // strange error def inside updatePid
 					//	ROS_INFO("checker: %f",checker);
 						if(isnan(checker))
 						{
