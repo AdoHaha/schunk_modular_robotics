@@ -203,6 +203,8 @@
 
                 void SdhNode::topicCallback_setPositions(const control_msgs::FollowJointTrajectoryActionGoal &goal)
 		{
+		if(operationMode_=="softposition")
+		{
 		targetAngles_.resize(DOF_);
 	        targetAngles_[0] = goal.goal.trajectory.points[0].positions[0]*180.0/pi_; // sdh_knuckle_joint
 		targetAngles_[1] = goal.goal.trajectory.points[0].positions[5]*180.0/pi_; // sdh_finger22_joint
@@ -211,6 +213,12 @@
 		targetAngles_[4] = goal.goal.trajectory.points[0].positions[2]*180.0/pi_; // sdh_thumb3_joint
 		targetAngles_[5] = goal.goal.trajectory.points[0].positions[3]*180.0/pi_; // sdh_finger12_joint
 		targetAngles_[6] = goal.goal.trajectory.points[0].positions[4]*180.0/pi_; // sdh_finger13_joint
+		}
+		else
+		{
+		//SdhNode::executeCB(&goal.goal); //TODO: now it works only in soft position mode
+		return;
+		}
 		}
 		/*!
 		* \brief Executes the callback from the actionlib

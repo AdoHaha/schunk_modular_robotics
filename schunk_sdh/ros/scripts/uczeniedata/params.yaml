@@ -1,0 +1,10 @@
+bacground_b: 0
+bacground_r: 150
+background_b: 0
+background_g: 86
+background_r: 69
+rosdistro: fuerte
+roslaunch:
+  uris: {host_localhost__51195: 'http://localhost:51195/'}
+rosversion: 1.8.10
+run_id: 2d9dc8ea-22a8-11e2-b198-50e5493c5c19
