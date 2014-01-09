@@ -77,38 +77,41 @@ class EscapeException(Exception):
     
 target_names = ['Cylinder grip', 'Three finger grip','Precision', 'Lateral','Wedge','Indicating pose','Flat hand']
 #output = open('data.pkl', 'wb')
-with open(data.pkl, 'w') as output:
-        try:    
-                while True:
-                        
-                        fps.tick(15)
-                        pygame.display.update()
-                        #if pygame.QUIT in [e.type for e in pygame.event.get()]:
-                        #        break
-                        for event in pygame.event.get():
-                                if event.type == pygame.KEYDOWN:
-                                        key=pygame.key.get_pressed()
-                                        if key[pygame.K_BACKSPACE]: #delete last one
-                                                try:
-                                                        delar=allrecords.pop()
-                                                        print "DELETED",target_names[delar[0]],delar
-                                                except:
-                                                        print "nothing to delete"
-                                        elif key[pygame.K_ESCAPE]:
-                                                raise EscapeException("Escape pressed, bye")
-                                                
-                                        #print key[pygame.K_1]
-                                        #all keys
-                                        allk=[key[pygame.K_0],key[pygame.K_1],key[pygame.K_2],key[pygame.K_3],key[pygame.K_4],key[pygame.K_5],key[pygame.K_6]]
+output=open('glove_current.pkl', 'wb') #as output:
+try:    
+        while True:
+                
+                fps.tick(15)
+                pygame.display.update()
+                #if pygame.QUIT in [e.type for e in pygame.event.get()]:
+                #        break
+                for event in pygame.event.get():
+                        if event.type == pygame.KEYDOWN:
+                                key=pygame.key.get_pressed()
+                                if key[pygame.K_BACKSPACE]: #delete last one
                                         try:
-                                                keypressed=next(key for key,value in enumerate(allk) if value==1) #gives first no 
-                                                addar=[keypressed]+xvector
-                                                print target_names[keypressed],addar
-                                                allrecords.append(addar)
+                                                delar=allrecords.pop()
+                                                print "DELETED",target_names[delar[0]],delar
                                         except:
-                                                pass
-        except EscapeException:
-                print "escape pressed, bye"
+                                                print "nothing to delete"
+                                elif key[pygame.K_ESCAPE]:
+                                        raise EscapeException("Escape pressed, bye")
+                                        
+                                #print key[pygame.K_1]
+                                #all keys
+                                allk=[key[pygame.K_0],key[pygame.K_1],key[pygame.K_2],key[pygame.K_3],key[pygame.K_4],key[pygame.K_5],key[pygame.K_6]]
+                                try:
+                                        keypressed=next(key for key,value in enumerate(allk) if value==1) #gives first no 
+                                        addar=[keypressed]+xvector
+                                        print target_names[keypressed],addar
+                                        allrecords.append(addar)
+                                        #print pickle.dump(allrecords, output)
+                                        #print allrecords
+                                except:
+                                        pass
+except EscapeException:
+        pickle.dump(allrecords, output)
+        print "escape pressed,all saved, bye"
                        
                         
                         
