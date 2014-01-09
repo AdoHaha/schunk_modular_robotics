@@ -1,0 +1,7 @@
+setup.cfg
+xdot.py
+pip-egg-info/xdot.egg-info/PKG-INFO
+pip-egg-info/xdot.egg-info/SOURCES.txt
+pip-egg-info/xdot.egg-info/dependency_links.txt
+pip-egg-info/xdot.egg-info/entry_points.txt
+pip-egg-info/xdot.egg-info/top_level.txt
