@@ -105,6 +105,7 @@ try:
                                         addar=[keypressed]+xvector
                                         print target_names[keypressed],addar
                                         allrecords.append(addar)
+                                        pickle.dump(allrecords, open('glove_current.pkl', 'wb'))
                                         #print pickle.dump(allrecords, output)
                                         #print allrecords
                                 except:

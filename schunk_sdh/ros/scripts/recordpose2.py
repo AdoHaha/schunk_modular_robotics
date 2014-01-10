@@ -112,6 +112,7 @@ try:
                                         pass
 except EscapeException:
         pickle.dump(allrecords, output)
+        pygame.quit()
         print "escape pressed,all saved, bye"
                        
                         
