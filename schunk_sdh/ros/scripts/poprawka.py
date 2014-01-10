@@ -60,7 +60,17 @@ def sendcorrection(name,delta):
     pubcorrection.publish(cor)
 names=["shadow_sdh_knuckle_joint","shadow_sdh_thumb_2_joint","shadow_sdh_thumb_3_joint","shadow_sdh_finger_12_joint","shadow_sdh_finger_13_joint",
                            "shadow_sdh_finger_22_joint","shadow_sdh_finger_23_joint"] #names
+                           
 poprawki={n:0.0 for n in names}
+
+def resetuj(nazwa):
+    global poprawki
+    print nazwa.data
+    poprawki[nazwa.data]=0.0
+    print poprawki
+    
+    
+rospy.Subscriber("poprawione",String,resetuj)
 class EscapeException(Exception):
     pass    
     

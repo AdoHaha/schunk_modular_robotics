@@ -1,16 +1,16 @@
 (dp0
 S'shadow_sdh_finger_12_joint'
 p1
-F-0.0335707808896
+F-0.009834999999999997
 sS'shadow_sdh_thumb_3_joint'
 p2
-F-0.0134869565458
+F-0.0137719565458
 sS'shadow_sdh_knuckle_joint'
 p3
 I0
 sS'shadow_sdh_finger_22_joint'
 p4
-F-0.0380045237042
+F-0.04835452370420001
 sS'shadow_sdh_finger_23_joint'
 p5
 F-0.0127691466143
@@ -19,5 +19,5 @@ p6
 F-0.02112
 sS'shadow_sdh_finger_13_joint'
 p7
-F-0.0113418423433
+F-0.012424842343300001
 s.
